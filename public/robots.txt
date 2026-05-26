@@ -1,0 +1,12 @@
+# Robots.txt for NodesLabs
+
+User-agent: *
+Allow: /
+Allow: /ai.txt
+
+# AEO (Answer Engine Optimization) endpoint for LLMs
+# Machine-readable content: /ai.txt
+# English version: /ai.txt?lang=en
+# Spanish version: /ai.txt?lang=es
+
+Sitemap: https://nodeslabs.com/sitemap.xml

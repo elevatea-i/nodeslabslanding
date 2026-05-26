@@ -1,0 +1,32 @@
+/*
+  # Content Security Policy - Protección contra XSS y inyección de código
+  Content-Security-Policy: default-src 'self'; script-src 'self' data: https://unpkg.com https://prod.spline.design https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://prod.spline.design https://unpkg.com https://qfyqraggyzytnlqvptnm.supabase.co https://rlhdbfcnxhafvmdmjzrn.supabase.co; frame-src 'self' https://prod.spline.design; worker-src 'self' blob: https://prod.spline.design; media-src 'self' https://prod.spline.design data: blob:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests; block-all-mixed-content;
+  
+  # Prevenir sniffing de contenido malicioso
+  X-Content-Type-Options: nosniff
+  
+  # Protección contra clickjacking
+  X-Frame-Options: DENY
+  
+  # Control de información de referencia
+  Referrer-Policy: strict-origin-when-cross-origin
+  
+  # Forzar HTTPS (HSTS)
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  
+  # Protección XSS legacy (para navegadores antiguos)
+  X-XSS-Protection: 1; mode=block
+  
+  # Control de funciones del navegador
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  
+  # CORS Headers
+  Access-Control-Allow-Origin: https://nodeslabs.com
+  Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
+  Access-Control-Allow-Headers: Content-Type, Authorization
+
+/ai.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, OPTIONS

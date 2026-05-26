@@ -1,0 +1,6 @@
+# AEO Endpoint - Redirect to Supabase Edge Function
+/ai.txt  https://rlhdbfcnxhafvmdmjzrn.supabase.co/functions/v1/ai-txt  200
+/ai.txt?lang=:lang  https://rlhdbfcnxhafvmdmjzrn.supabase.co/functions/v1/ai-txt?lang=:lang  200
+
+# SPA fallback - must be last
+/*  /index.html  200
