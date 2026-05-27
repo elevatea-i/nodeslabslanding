@@ -12,84 +12,104 @@ const ProcessStep: React.FC<{
   color: string;
   glowColor: string;
   isLast: boolean;
-}> = ({ icon, title, description, index, color, glowColor, isLast }) => {
-  return (
-    <div className="relative flex-1">
-      <motion.div 
-        className="group flex flex-col items-center text-center space-y-4"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
+  reducedMotion: boolean;
+}> = ({ icon, title, description, index, color, glowColor, isLast, reducedMotion }) => {
+  const motionProps = reducedMotion
+    ? {}
+    : {
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 },
+        transition: {
           duration: 0.5,
           delay: index * 0.15,
-          ease: [0.21, 0.45, 0.32, 0.9] as const
-        }}
-        viewport={{ once: true }}
+          ease: [0.21, 0.45, 0.32, 0.9] as const,
+        },
+        viewport: { once: true },
+      };
+
+  const iconMotionProps = reducedMotion
+    ? {}
+    : { whileHover: { scale: 1.1, y: -4, transition: { duration: 0.2 } } };
+
+  const lineMotionProps = reducedMotion
+    ? {}
+    : {
+        initial: { scaleX: 0, opacity: 0 },
+        whileInView: { scaleX: 1, opacity: 1 },
+        transition: { duration: 0.5, delay: index * 0.15 + 0.2 },
+        viewport: { once: true },
+      };
+
+  const mobileLineMotionProps = reducedMotion
+    ? {}
+    : {
+        initial: { scaleY: 0, opacity: 0 },
+        whileInView: { scaleY: 1, opacity: 1 },
+        transition: { duration: 0.3, delay: index * 0.15 + 0.2 },
+        viewport: { once: true },
+      };
+
+  return (
+    <div className="relative flex-1">
+      <motion.div
+        className="group flex flex-col items-center text-center space-y-4"
+        {...motionProps}
       >
-        <motion.div 
+        <motion.div
           className={`relative z-10 w-16 h-16 rounded-xl flex items-center justify-center ${color}`}
-          style={{
-            boxShadow: `0 0 20px ${glowColor}`
-          }}
-          whileHover={{
-            scale: 1.1,
-            y: -4,
-            transition: { duration: 0.2 }
-          }}
+          style={{ boxShadow: `0 0 20px ${glowColor}` }}
+          {...iconMotionProps}
+          aria-hidden="true"
         >
           {icon}
         </motion.div>
 
-        <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#ADC9FF] to-transparent opacity-20 transition-all duration-300 group-hover:w-20 group-hover:opacity-40 mx-auto" />
-        
+        <div
+          className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#ADC9FF] to-transparent opacity-20 transition-all duration-300 group-hover:w-20 group-hover:opacity-40 mx-auto"
+          aria-hidden="true"
+        />
+
         <div className="max-w-[280px] text-center space-y-2">
           <h3 className="text-lg text-gray-300 leading-tight font-inter font-semibold">
             {title}
           </h3>
-          
           <p className="text-sm text-gray-400 leading-relaxed font-inter">
             {description}
           </p>
         </div>
       </motion.div>
 
-      {/* Connecting line */}
+      {/* Decorative connecting lines — hidden from assistive tech */}
       {!isLast && (
-        <>
+        <span aria-hidden="true">
           {/* Desktop line */}
-          <motion.div 
+          <motion.div
             className="hidden md:block absolute top-[32px] w-[calc(100%-3rem)] h-[2px]"
             style={{
               left: 'calc(50% + 2.5rem)',
-              background: `linear-gradient(to right, 
-                ${index === 0 ? 'rgba(173, 201, 255, 0.3)' : 'rgba(153, 50, 204, 0.3)'}, 
+              background: `linear-gradient(to right,
+                ${index === 0 ? 'rgba(173, 201, 255, 0.3)' : 'rgba(153, 50, 204, 0.3)'},
                 ${index === 0 ? 'rgba(153, 50, 204, 0.3)' : 'rgba(173, 201, 255, 0.3)'}
               )`,
               transformOrigin: 'left'
             }}
-            initial={{ scaleX: 0, opacity: 0 }}
-            whileInView={{ scaleX: 1, opacity: 1 }}
-            transition={{ duration: 0.5, delay: index * 0.15 + 0.2 }}
-            viewport={{ once: true }}
+            {...lineMotionProps}
           />
 
           {/* Mobile line */}
-          <motion.div 
+          <motion.div
             className="md:hidden absolute top-[calc(100%+0.5rem)] left-1/2 h-8 w-[2px]"
-            initial={{ scaleY: 0, opacity: 0 }}
-            whileInView={{ scaleY: 1, opacity: 1 }}
-            transition={{ duration: 0.3, delay: index * 0.15 + 0.2 }}
-            viewport={{ once: true }}
             style={{
-              background: `linear-gradient(to bottom, 
-                ${index === 0 ? 'rgba(173, 201, 255, 0.3)' : 'rgba(153, 50, 204, 0.3)'}, 
+              background: `linear-gradient(to bottom,
+                ${index === 0 ? 'rgba(173, 201, 255, 0.3)' : 'rgba(153, 50, 204, 0.3)'},
                 ${index === 0 ? 'rgba(153, 50, 204, 0.3)' : 'rgba(173, 201, 255, 0.3)'}
               )`,
               transformOrigin: 'top',
               left: 'calc(50% - 1px)'
             }}
+            {...mobileLineMotionProps}
           />
-        </>
+        </span>
       )}
     </div>
   );
@@ -98,13 +118,30 @@ const ProcessStep: React.FC<{
 const ProcessSection: React.FC = () => {
   const { language } = useLanguage();
   const isDesktop = useMediaQuery('(min-width: 1024px)');
+  const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
+
+  const headingMotionProps = reducedMotion
+    ? {}
+    : {
+        initial: { opacity: 0, y: -20 },
+        whileInView: { opacity: 1, y: 0 },
+        transition: { duration: 0.5 },
+        viewport: { once: true },
+      };
+
+  const subheadingMotionProps = reducedMotion
+    ? {}
+    : {
+        initial: { opacity: 0, y: -10 },
+        whileInView: { opacity: 1, y: 0 },
+        transition: { duration: 0.5, delay: 0.1 },
+        viewport: { once: true },
+      };
 
   const steps = [
     {
-      icon: <Calendar size={28} style={{ color: '#ADC9FF' }} />,
-      title: language === 'es' 
-        ? '01 - Diagnóstico.'
-        : '01 - Diagnosis.',
+      icon: <Calendar size={28} style={{ color: '#ADC9FF' }} aria-hidden="true" />,
+      title: language === 'es' ? '01 - Diagnóstico.' : '01 - Diagnosis.',
       description: language === 'es'
         ? 'Analizamos tu negocio en 60 minutos y te mostramos exactamente dónde vas a ganar más tiempo y dinero.'
         : 'We analyze your business in 60 minutes and show you exactly where you will save more time and money.',
@@ -112,7 +149,7 @@ const ProcessSection: React.FC = () => {
       glowColor: 'rgba(173, 201, 255, 0.15)'
     },
     {
-      icon: <Settings size={28} style={{ color: 'var(--color-primary-purple)' }} />,
+      icon: <Settings size={28} style={{ color: 'var(--color-primary-purple)' }} aria-hidden="true" />,
       title: language === 'es'
         ? '02 - Desarrollo e Implementación.'
         : '02 - Development & Implementation.',
@@ -123,7 +160,7 @@ const ProcessSection: React.FC = () => {
       glowColor: 'rgba(153, 50, 204, 0.15)'
     },
     {
-      icon: <Rocket size={28} style={{ color: '#ADC9FF' }} />,
+      icon: <Rocket size={28} style={{ color: '#ADC9FF' }} aria-hidden="true" />,
       title: language === 'es'
         ? '03 - Lanzamiento & Mantenimiento.'
         : '03 - Launch & Maintenance.',
@@ -136,44 +173,39 @@ const ProcessSection: React.FC = () => {
   ];
 
   return (
-    <section id="proceso" className="relative section-spacing" style={{
-      background: '#000'
-    }}>
+    <section
+      id="proceso"
+      className="relative section-spacing"
+      aria-label={language === 'es' ? 'Nuestro proceso' : 'Our process'}
+      style={{ background: '#000' }}
+    >
       <div className="relative z-20 top-tier-container h-full flex flex-col justify-center">
-        {/* Title Section - Left aligned for desktop, centered for mobile */}
         <div className={`mb-15 ${isDesktop ? 'text-left pl-12' : 'text-center'}`}>
           <motion.h2
-            className={`text-2xl sm:text-3xl lg:text-4xl font-sora font-medium text-white mb-8 ${isDesktop ? 'text-left' : 'text-center'}`}
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            style={{
-              color: '#FFFFFF',
-              lineHeight: '1.3'
-            }}
+            className={`text-2xl sm:text-3xl lg:text-4xl font-sora font-medium mb-8 ${isDesktop ? 'text-left' : 'text-center'}`}
+            {...headingMotionProps}
+            style={{ color: '#FFFFFF', lineHeight: '1.3' }}
           >
-            {language === 'es' 
-              ? 'Nuestro proceso que multiplica ingresos sin aumentar costos. '
+            {language === 'es'
+              ? 'Nuestro proceso que multiplica ingresos sin aumentar costos.'
               : 'Our process that multiplies revenues without increasing costs.'}
           </motion.h2>
 
           <motion.p
             className={`text-lg lg:text-xl font-inter max-w-2xl ${isDesktop ? 'text-left mx-0' : 'text-center mx-auto'}`}
             style={{ color: 'rgba(255, 255, 255, 0.7)', lineHeight: '1.6' }}
-            initial={{ opacity: 0, y: -10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
+            {...subheadingMotionProps}
           >
-            {language === 'es' 
+            {language === 'es'
               ? 'Mientras tu competencia planifica por meses, tú ya estás automatizando y vendiendo.'
               : 'While your competitors are planning for months, you are already automating and selling.'}
           </motion.p>
         </div>
-        
-        {/* Steps remain centered for both layouts as they work well visually */}
-        <div className="flex flex-col md:flex-row justify-center items-center md:items-start element-spacing">
+
+        <ol
+          className="flex flex-col md:flex-row justify-center items-center md:items-start element-spacing"
+          aria-label={language === 'es' ? 'Pasos del proceso' : 'Process steps'}
+        >
           {steps.map((step, index) => (
             <ProcessStep
               key={index}
@@ -184,9 +216,10 @@ const ProcessSection: React.FC = () => {
               color={step.color}
               glowColor={step.glowColor}
               isLast={index === steps.length - 1}
+              reducedMotion={reducedMotion}
             />
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

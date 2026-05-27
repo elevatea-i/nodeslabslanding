@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -44,12 +44,15 @@ const BentoCard = ({
     key={name}
     className={cn(
       "group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-xl",
-      // Always black background with dark styling
       "bg-black [border:1px_solid_rgba(255,255,255,.1)] [box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
-      "transform-gpu",
+      "transform-gpu cursor-pointer md:cursor-default",
       className,
     )}
+    onClick={onCtaClick}
   >
+    <div className="absolute top-4 right-4 md:hidden">
+      <ArrowUpRight size={16} style={{ color: 'rgba(255,255,255,0.35)' }} />
+    </div>
     <div>{background}</div>
     <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
       <Icon className="h-12 w-12 origin-left transform-gpu text-neutral-300 transition-all duration-300 ease-in-out group-hover:scale-75" />
@@ -64,10 +67,10 @@ const BentoCard = ({
         "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100",
       )}
     >
-      <Button 
-        variant="ghost-elegant" 
-        size="sm" 
-        className="pointer-events-auto liquid-glass-secondary border border-white/20 text-white hover:text-white hover:border-white/40 backdrop-blur-md transition-all duration-300" 
+      <Button
+        variant="ghost-elegant"
+        size="sm"
+        className="hidden md:flex pointer-events-auto liquid-glass-secondary border border-white/20 text-white hover:text-white hover:border-white/40 backdrop-blur-md transition-all duration-300"
         onClick={onCtaClick}
         style={{
           background: 'rgba(255, 255, 255, 0.1)',
