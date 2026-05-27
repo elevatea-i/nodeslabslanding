@@ -159,15 +159,15 @@ const AutomationSection: React.FC = () => {
             Toca cada opción para explorar
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 mx-auto">
             {serviceButtons.map((btn, index) => (
               <motion.button
                 key={btn.id}
                 onClick={() => setActiveService(btn.id)}
                 onMouseEnter={() => handleMouseEnter(btn.id)}
                 className={`
-                  group relative px-4 py-3 sm:px-6 sm:py-4 rounded-xl font-medium transition-all duration-300
-                  border text-sm sm:text-base text-left
+                  group relative px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl font-medium transition-all duration-300
+                  border text-sm text-center
                   ${activeService === btn.id
                     ? 'border-[#ADC9FF]/60 bg-gray-800/80 text-white'
                     : 'border-gray-700 bg-gray-900/50 text-gray-300 hover:border-[#ADC9FF]/40 hover:bg-gray-800/60 hover:text-white'}
