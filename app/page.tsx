@@ -7,7 +7,6 @@ import PASSection from '@/components/PASSection';
 import { BentoCardSkeleton, ProcessStepSkeleton, CardSkeleton } from '@/components/SkeletonLoader';
 
 const BenefitsSection = lazy(() => import('@/components/BenefitsSection'));
-const MetricsSection = lazy(() => import('@/components/MetricsSection'));
 const ProcessSection = lazy(() => import('@/components/ProcessSection'));
 const TechnologyBenefitsSection = lazy(() => import('@/components/TechnologyBenefitsSection'));
 const AIToolsCarousel = lazy(() => import('@/components/AIToolsCarousel'));
@@ -49,7 +48,6 @@ export default function HomePage() {
         }
       >
         <BenefitsSection />
-        <MetricsSection />
         <ProcessSection />
         <TechnologyBenefitsSection />
         <AIToolsCarousel />
