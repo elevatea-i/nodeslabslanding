@@ -2,50 +2,65 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { BorderBeam } from '@/components/ui/border-beam';
+import { useLanguage } from '@/context/LanguageContext';
 
-const phrases = [
-  'atención al cliente.',
-  'recepción de llamadas.',
-  'generación de leads.',
-  'reserva de citas.',
-  'calificación de prospectos.',
-];
+const serviceIds = [
+  'customerSupport',
+  'receptionist',
+  'leadGeneration',
+  'callCenter',
+  'rentalService',
+  'appointmentBooking',
+  'prospectQualification',
+  'productRecommendation',
+] as const;
 
-const serviceButtons = [
-  { id: 'customerSupport',        label: 'Atención al cliente' },
-  { id: 'receptionist',           label: 'Recepcionista' },
-  { id: 'leadGeneration',         label: 'Generación de leads' },
-  { id: 'callCenter',             label: 'Call center' },
-  { id: 'rentalService',          label: 'Servicios de renta' },
-  { id: 'appointmentBooking',     label: 'Reserva de citas' },
-  { id: 'prospectQualification',  label: 'Calificación de prospectos' },
-  { id: 'productRecommendation',  label: 'Recomendación de productos' },
-];
+type ServiceId = typeof serviceIds[number];
 
-const descriptions: Record<string, string> = {
-  customerSupport:       'Resuelve dudas, quejas y solicitudes en segundos.',
-  receptionist:          'Agenda, confirma y reagenda citas automáticamente. Disponible todos los días, a cualquier hora.',
-  leadGeneration:        'Califica prospectos en tiempo real y los entrega listos para cerrar.',
-  callCenter:            'Atiende cientos de llamadas simultáneas con la consistencia de tu mejor agente. Sin rotación.',
-  rentalService:         'Responde disponibilidad, procesa reservas y confirma pagos, sin naide de por medio.',
-  appointmentBooking:    'Sincroniza tu calendario y agenda solo con prospectos calificados.',
-  prospectQualification: 'Filtra, segmenta y prioriza leads según los criterios que tú defines. Tu equipo cierra, no persigue.',
-  productRecommendation: 'Sugiere el producto correcto en el momento correcto, como tu mejor vendedor.',
+const buttonKeys: Record<ServiceId, string> = {
+  customerSupport:       'automation.buttons.customerSupport',
+  receptionist:          'automation.buttons.receptionist',
+  leadGeneration:        'automation.buttons.leadGeneration',
+  callCenter:            'automation.buttons.outboundSales',
+  rentalService:         'automation.buttons.rentalService',
+  appointmentBooking:    'automation.buttons.appointmentBooking',
+  prospectQualification: 'automation.buttons.inboundQualification',
+  productRecommendation: 'automation.buttons.productRecommendation',
 };
+
+const messageKeys: Record<ServiceId, string> = {
+  customerSupport:       'automation.messages.customerSupport',
+  receptionist:          'automation.messages.receptionist',
+  leadGeneration:        'automation.messages.leadGeneration',
+  callCenter:            'automation.messages.outboundSales',
+  rentalService:         'automation.messages.rentalService',
+  appointmentBooking:    'automation.messages.appointmentBooking',
+  prospectQualification: 'automation.messages.inboundQualification',
+  productRecommendation: 'automation.messages.productRecommendation',
+};
+
+const phraseKeys = [
+  'automation.phrase1',
+  'automation.phrase2',
+  'automation.phrase3',
+  'automation.phrase4',
+  'automation.phrase5',
+];
 
 const AutomationSection: React.FC = () => {
   const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
-  const [activeService, setActiveService] = useState<string>('customerSupport');
+  const [activeService, setActiveService] = useState<ServiceId>('customerSupport');
+  const { t } = useLanguage();
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentPhraseIndex((prev) => (prev + 1) % phrases.length);
+      setCurrentPhraseIndex((prev) => (prev + 1) % phraseKeys.length);
     }, 3500);
     return () => clearInterval(interval);
   }, []);
 
-  const handleMouseEnter = useCallback((id: string) => setActiveService(id), []);
+  const handleMouseEnter = useCallback((id: ServiceId) => setActiveService(id), []);
 
   const phraseVariants = {
     initial: { opacity: 0, y: prefersReducedMotion ? 0 : 14 },
@@ -75,13 +90,13 @@ const AutomationSection: React.FC = () => {
             className="text-2xl sm:text-3xl md:text-4xl font-medium text-white mb-3 mx-auto"
             style={{ lineHeight: '1.25', letterSpacing: '0.01em' }}
           >
-            Un agente para cada parte de tu operación.
+            {t('automation.sectionTitle')}
           </h2>
           <p
             className="text-base sm:text-lg mx-auto"
             style={{ color: 'rgba(255,255,255,0.45)', lineHeight: '1.6' }}
           >
-            Cada caso de uso es un agente distinto, entrenado para resolver exactamente eso.
+            {t('automation.sectionSubtitle')}
           </p>
         </motion.div>
 
@@ -106,7 +121,7 @@ const AutomationSection: React.FC = () => {
               style={{ letterSpacing: '-0.02em', lineHeight: '1.3' }}
               aria-live="polite"
             >
-              <span className="text-white whitespace-nowrap">Automatiza tu</span>
+              <span className="text-white whitespace-nowrap">{t('automation.heading')}</span>
               <span className="overflow-hidden" style={{ height: '1.3em', display: 'inline-flex', alignItems: 'center', position: 'relative' }}>
                 <AnimatePresence mode="wait">
                   <motion.span
@@ -118,12 +133,12 @@ const AutomationSection: React.FC = () => {
                     className="whitespace-nowrap"
                     style={{ color: 'var(--glass)', position: 'absolute' }}
                   >
-                    {phrases[currentPhraseIndex]}
+                    {t(phraseKeys[currentPhraseIndex])}
                   </motion.span>
                 </AnimatePresence>
-                {/* invisible spacer to size the container to the longest phrase */}
+                {/* invisible spacer sized to the longest phrase in the active language */}
                 <span aria-hidden className="invisible whitespace-nowrap">
-                  calificación de prospectos.
+                  {t('automation.phrase5')}
                 </span>
               </span>
             </h3>
@@ -156,19 +171,19 @@ const AutomationSection: React.FC = () => {
             className="md:hidden text-center mb-4"
             style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)' }}
           >
-            Toca cada opción para explorar
+            {t('automation.mobileHint')}
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 mx-auto">
-            {serviceButtons.map((btn, index) => (
+            {serviceIds.map((id, index) => (
               <motion.button
-                key={btn.id}
-                onClick={() => setActiveService(btn.id)}
-                onMouseEnter={() => handleMouseEnter(btn.id)}
+                key={id}
+                onClick={() => setActiveService(id)}
+                onMouseEnter={() => handleMouseEnter(id)}
                 className={`
                   group relative px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl font-medium transition-all duration-300
                   border text-sm text-center
-                  ${activeService === btn.id
+                  ${activeService === id
                     ? 'border-[#ADC9FF]/60 bg-gray-800/80 text-white'
                     : 'border-gray-700 bg-gray-900/50 text-gray-300 hover:border-[#ADC9FF]/40 hover:bg-gray-800/60 hover:text-white'}
                 `}
@@ -179,8 +194,8 @@ const AutomationSection: React.FC = () => {
                 whileHover={{ scale: 1.04, y: -2, transition: { duration: 0.2 } }}
                 whileTap={{ scale: 0.97 }}
               >
-                {btn.label}
-                {activeService === btn.id && (
+                {t(buttonKeys[id])}
+                {activeService === id && (
                   <div
                     className="absolute inset-0 rounded-xl pointer-events-none"
                     style={{ background: 'rgba(173,201,255,0.07)', boxShadow: '0 0 20px rgba(173,201,255,0.15)' }}
@@ -194,7 +209,7 @@ const AutomationSection: React.FC = () => {
           <div className="mt-8 min-h-[64px]">
             <AnimatePresence mode="wait">
               <motion.p
-                key={activeService}
+                key={`${activeService}-desc`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -202,7 +217,7 @@ const AutomationSection: React.FC = () => {
                 className="text-center text-base sm:text-lg"
                 style={{ color: 'rgba(255,255,255,0.45)', lineHeight: '1.65' }}
               >
-                {descriptions[activeService]}
+                {t(messageKeys[activeService])}
               </motion.p>
             </AnimatePresence>
           </div>

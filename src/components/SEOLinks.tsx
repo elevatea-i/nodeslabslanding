@@ -1,8 +1,7 @@
 import React from 'react';
-import { InternalLink } from '@/components/InternalLinks';
+import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 
-// Footer links for SEO and navigation
 export const FooterSEOLinks: React.FC = () => {
   const { language } = useLanguage();
 
@@ -10,66 +9,41 @@ export const FooterSEOLinks: React.FC = () => {
     {
       title: language === 'es' ? 'Servicios' : 'Services',
       links: [
-        {
-          to: '/contact',
-          text: language === 'es' ? 'Agentes IA.' : 'AI Agents.'
-        },
-        {
-          to: '/contact',
-          text: language === 'es' ? 'Creación de Contenido.' : 'Content Creation.'
-        },
-        {
-          to: '/contact',
-          text: language === 'es' ? 'Sitios Web | MVPs' : 'Websites | MVPs'
-        }
+        { to: '/soluciones', text: language === 'es' ? 'AI Agents.' : 'AI Agents.' },
+        { to: '/soluciones', text: language === 'es' ? 'Productos Digitales.' : 'Digital Products.' },
+        { to: '/soluciones', text: language === 'es' ? 'Content & Media.' : 'Content & Media.' }
       ]
     },
     {
-      title: language === 'es' ? 'Empresa.' : 'Company.',
+      title: language === 'es' ? 'Compañía.' : 'Company.',
       links: [
-        {
-          to: '#proceso',
-          text: language === 'es' ? 'Nuestro Proceso.' : 'Our Process.'
-        },
-        {
-          to: '#contacto',
-          text: language === 'es' ? 'Contacto.' : 'Contact.'
-        }
-      ]
-    },
-    {
-      title: language === 'es' ? 'Recursos.' : 'Resources.',
-      links: [
-        {
-          to: '/#servicios',
-          text: language === 'es' ? 'Automatización.' : 'Automation.'
-        },
-        {
-          to: '/#proceso',
-          text: language === 'es' ? 'Diagnóstico' : 'Diagnosis'
-        }
+        { to: '/nosotros', text: language === 'es' ? 'Nosotros.' : 'About Us.' },
+        { to: '/contacto', text: language === 'es' ? 'Contacto.' : 'Contact.' },
+        { to: '/aviso-privacidad', text: language === 'es' ? 'Aviso de Privacidad.' : 'Privacy Policy.' }
       ]
     }
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
       {linkSections.map((section, index) => (
         <div key={index}>
-          <h4 className="text-white font-semibold mb-4 text-base font-sora">
+          <h4
+            className="font-semibold mb-4 text-base"
+            style={{ color: '#E4EDF4' }}
+          >
             {section.title}
           </h4>
           <ul className="space-y-2 list-none pl-0">
             {section.links.map((link, linkIndex) => (
               <li key={linkIndex}>
-                <InternalLink
-                  to={link.to}
-                  external={(link as any).external}
-                  variant="secondary"
-                  className="text-gray-400 hover:text-white transition-colors duration-200 font-inter text-sm"
+                <Link
+                  href={link.to}
+                  className="text-sm transition-colors duration-200 no-underline hover:text-white/90"
+                  style={{ color: 'rgba(255,255,255,0.5)' }}
                 >
                   {link.text}
-                </InternalLink>
+                </Link>
               </li>
             ))}
           </ul>

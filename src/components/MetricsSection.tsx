@@ -78,7 +78,7 @@ function Metric({ prefix, value, suffix, label, sublabel, start, delay = 0 }: Me
 const MetricsSection: React.FC = () => {
   const { language } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.4 });
 
   const metrics = language === "es"
     ? [

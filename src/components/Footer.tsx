@@ -1,7 +1,6 @@
 import React from 'react';
 import { Mail } from 'lucide-react';
 import { FooterSEOLinks } from '@/components/SEOLinks';
-import { InternalLink } from '@/components/InternalLinks';
 import { useLanguage } from '@/context/LanguageContext';
 
 const Footer: React.FC = () => {
@@ -9,60 +8,49 @@ const Footer: React.FC = () => {
   const { language } = useLanguage();
 
   return (
-    <footer className="bg-black border-t border-gray-800/30">
+    <footer style={{ background: '#0B0D14', borderTop: '1px solid #2D4460' }}>
       <div className="top-tier-container py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-          {/* Left Column - Company Info */}
-          <div className="lg:col-span-4 space-y-4">
-            {/* Company Name and Logo */}
-            <div className="flex items-center gap-3">
-              <h2 className="text-xl font-bold font-sora" style={{ color: '#FFFFFF' }}>
-                NodesLabs
-              </h2>
-            </div>
-            
-            {/* Company Description */}
-            <p className="text-gray-400 font-inter text-sm leading-relaxed max-w-sm">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          {/* Column 1 — Logo + tagline + email */}
+          <div className="space-y-4">
+            <h2 className="text-xl font-bold" style={{ color: '#FFFFFF' }}>
+              NodesLabs
+            </h2>
+
+            <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>
               {language === 'es'
-                ? 'El laboratorio donde la IA se encuentra con tu negocio | Líderes en automatización y contenido.'
-                : 'The lab where AI meets your business | Leaders in automation and content.'}
+                ? 'El laboratorio de IA para tu negocio.'
+                : 'The AI lab for your business.'}
             </p>
 
-            {/* Contact Email */}
             <a
               href="mailto:axel@nodeslabs.com"
-              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-200 group"
+              className="flex items-center gap-2 transition-colors duration-200 group"
+              style={{ color: 'rgba(255,255,255,0.4)' }}
+              onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.9)')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.4)')}
               aria-label="Enviar correo a axel@nodeslabs.com"
             >
               <Mail size={16} className="group-hover:scale-110 transition-transform duration-200" />
-              <span className="text-sm font-inter">axel@nodeslabs.com</span>
+              <span className="text-sm">axel@nodeslabs.com</span>
             </a>
-
           </div>
 
-          {/* Right Columns - Navigation Links */}
-          <div className="lg:col-span-8">
+          {/* Columns 2 & 3 — Servicios + Compañía */}
+          <div className="md:col-span-2">
             <FooterSEOLinks />
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pt-8 mt-8 border-t border-gray-800/30 gap-4">
-          {/* Copyright */}
-          <p className="text-xs text-gray-400 font-inter">
-            © {currentYear} NodesLabs. {language === 'es' ? 'Todos los derechos reservados' : 'All rights reserved.'}.
+        {/* Bottom bar */}
+        <div
+          className="pt-8 mt-8"
+          style={{ borderTop: '1px solid rgba(45,68,96,0.4)' }}
+        >
+          <p className="text-xs" style={{ color: 'rgba(255,255,255,0.25)' }}>
+            © {currentYear} NodesLabs.{' '}
+            {language === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}
           </p>
-
-          {/* Bottom Links */}
-          <div className="flex items-center gap-6">
-            <InternalLink
-              to="/aviso-privacidad"
-              variant="secondary"
-              className="text-xs text-gray-400 hover:text-white"
-            >
-              {language === 'es' ? 'Aviso de Privacidad.' : 'Privacy Policy.'}
-            </InternalLink>
-          </div>
         </div>
       </div>
     </footer>

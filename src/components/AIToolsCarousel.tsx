@@ -95,21 +95,13 @@ const AIToolsCarousel: React.FC = () => {
           viewport={{ once: true }}
         >
           <h2
-            className="text-2xl sm:text-3xl lg:text-4xl font-sora font-medium mb-4"
-            style={{ lineHeight: '1.6', color: '#8A829A' }}
+            className="text-2xl sm:text-3xl lg:text-4xl font-sora font-semibold mb-4"
+            style={{ lineHeight: '1.6', color: '#FFFFFF' }}
           >
             {language === 'es'
               ? 'Utilizamos el stack tecnológico enterprise más avanzado.'
               : 'We use the most advanced enterprise technology stack.'}
           </h2>
-          <p
-            className="text-lg max-w-3xl mx-auto font-inter"
-            style={{ color: 'rgba(255, 255, 255, 0.7)', lineHeight: '1.6' }}
-          >
-            {language === 'es'
-              ? 'La combinación exacta para ahorrar más tiempo y escalar más rápido.'
-              : 'Just the right combination to save more time and scale faster.'}
-          </p>
         </motion.div>
 
         {/* Reduced-motion: static accessible grid */}
@@ -222,19 +214,6 @@ const AIToolsCarousel: React.FC = () => {
           </motion.div>
         )}
 
-        {/* Bottom text */}
-        <motion.p
-          className="text-center text-sm font-inter mt-8"
-          style={{ color: 'rgba(255, 255, 255, 0.7)', lineHeight: '1.6' }}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: prefersReducedMotion ? 0 : 0.5, delay: prefersReducedMotion ? 0 : 0.4 }}
-          viewport={{ once: true }}
-        >
-          {language === 'es'
-            ? 'Y muchas más herramientas que se adaptan a las necesidades específicas de tu negocio.'
-            : 'And many more tools that adapt to your business specific needs.'}
-        </motion.p>
       </div>
     </section>
   );

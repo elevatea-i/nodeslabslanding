@@ -109,10 +109,10 @@ const Navbar: React.FC = () => {
   };
 
   const navItems = [
-    { href: "/Inicio/home", text: "Inicio" },
-    { href: "/servicios", text: "Soluciones" },
-    { href: "/nosotros", text: "Nosotros" },
-    { href: "/contacto", text: "Contacto" }
+    { href: "/Inicio/home", text: language === 'es' ? 'Inicio' : 'Home' },
+    { href: "/servicios", text: language === 'es' ? 'Soluciones' : 'Solutions' },
+    { href: "/nosotros", text: language === 'es' ? 'Nosotros' : 'About' },
+    { href: "/contacto", text: language === 'es' ? 'Contacto' : 'Contact' }
   ];
 
   const langLabel = language === 'es'
@@ -228,7 +228,7 @@ const Navbar: React.FC = () => {
                       whileHover={prefersReducedMotion ? {} : { y: -2, scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <span className="relative z-10">Empecemos →</span>
+                      <span className="relative z-10">{language === 'es' ? 'Empecemos →' : "Let's start →"}</span>
                     </motion.button>
 
                     <motion.button
@@ -326,7 +326,7 @@ const Navbar: React.FC = () => {
                       style={{ color: 'rgba(255, 255, 255, 1)', textDecoration: 'none' }}
                       variants={menuItemVariants}
                     >
-                      <span className="relative z-10">Empecemos →</span>
+                      <span className="relative z-10">{language === 'es' ? 'Empecemos →' : "Let's start →"}</span>
                     </motion.button>
 
                     <motion.button

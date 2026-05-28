@@ -3,6 +3,7 @@
 import React, { useRef, useEffect, Suspense } from "react";
 import * as THREE from "three";
 import { motion, type Variants } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 function GenerativeArtScene() {
   const mountRef = useRef<HTMLDivElement>(null);
@@ -186,6 +187,8 @@ const item: Variants = {
 };
 
 export function AnomalousMatterHero() {
+  const { t } = useLanguage();
+
   return (
     <section
       role="banner"
@@ -234,7 +237,7 @@ export function AnomalousMatterHero() {
             maxWidth: "48rem",
           }}
         >
-          El laboratorio de IA detrás de tu siguiente nivel.
+          {t('hero.labHeadline')}
         </motion.h1>
 
         {/* Subheadline */}
@@ -247,9 +250,7 @@ export function AnomalousMatterHero() {
             maxWidth: "36rem",
           }}
         >
-          Construimos los sistemas que tu negocio necesita
-          <br className="hidden md:block" />
-          para crecer.
+          {t('hero.labSubtitle')}
         </motion.p>
 
         {/* CTAs */}
@@ -273,7 +274,7 @@ export function AnomalousMatterHero() {
               ((e.currentTarget as HTMLElement).style.backgroundColor = "#FFFFFF")
             }
           >
-            Empecemos a construir →
+            {t('hero.labCta1')}
           </a>
           <a
             href="/trabajo"
@@ -296,7 +297,7 @@ export function AnomalousMatterHero() {
                 "rgba(255,255,255,0.5)";
             }}
           >
-            Ver nuestro trabajo
+            {t('hero.labCta2')}
           </a>
         </motion.div>
 

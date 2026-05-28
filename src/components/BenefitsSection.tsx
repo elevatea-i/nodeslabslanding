@@ -112,7 +112,7 @@ const BenefitsSection: React.FC = () => {
             textTransform: 'uppercase',
             marginBottom: '16px'
           }}>
-            Nuestros Servicios
+            {language === 'es' ? 'Nuestros Servicios' : 'Our Services'}
           </p>
           <h2 style={{
             fontSize: 'clamp(28px, 4vw, 48px)',
@@ -122,7 +122,7 @@ const BenefitsSection: React.FC = () => {
             lineHeight: '1.15',
             maxWidth: '480px'
           }}>
-            Tres capacidades.<br />Un solo laboratorio.
+            {language === 'es' ? <>Tres capacidades.<br />Un solo laboratorio.</> : <>Three capabilities.<br />One lab.</>}
           </h2>
         </motion.div>
 

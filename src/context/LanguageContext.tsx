@@ -188,6 +188,20 @@ const translations = {
     'contact.service.contentCreation': 'Creación de contenido',
     'contact.service.websiteCreation': 'Creación de sitios web',
 
+    // Hero lab section
+    'hero.labHeadline': 'El laboratorio de IA detrás de tu siguiente nivel.',
+    'hero.labSubtitle': 'Construimos los sistemas que tu negocio necesita para crecer.',
+    'hero.labCta1': 'Empecemos a construir →',
+    'hero.labCta2': 'Ver nuestro trabajo',
+
+    // Automation section headers
+    'automation.sectionTitle': 'Un agente para cada parte de tu operación.',
+    'automation.sectionSubtitle': 'Cada caso de uso es un agente distinto, entrenado para resolver exactamente eso.',
+    'automation.mobileHint': 'Toca cada opción para explorar',
+
+    // Modal
+    'modal.close': 'Cerrar',
+
     // Thank You Page
     'thanks.title': '¡Gracias por contactarnos!',
     'thanks.message': 'Nos pondremos en contacto contigo pronto para comenzar tu transformación digital.',
@@ -371,6 +385,20 @@ const translations = {
     'contact.service.appointmentManagement': 'Appointment Management',
     'contact.service.contentCreation': 'Content Creation',
     'contact.service.websiteCreation': 'Website Creation',
+
+    // Hero lab section
+    'hero.labHeadline': 'The AI lab behind your next level.',
+    'hero.labSubtitle': 'We build the systems your business needs to grow.',
+    'hero.labCta1': "Let's start building →",
+    'hero.labCta2': 'See our work',
+
+    // Automation section headers
+    'automation.sectionTitle': 'One agent for every part of your operation.',
+    'automation.sectionSubtitle': 'Each use case is a distinct agent, trained to solve exactly that.',
+    'automation.mobileHint': 'Tap each option to explore',
+
+    // Modal
+    'modal.close': 'Close',
 
     // Thank You Page
     'thanks.title': 'Thank you for contacting us!',

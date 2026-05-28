@@ -424,7 +424,7 @@ code, pre, .mono {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0a0a0f;
+  background: #0B0D14;
   overflow: hidden;
   min-height: 90vh;
 }
@@ -432,7 +432,7 @@ code, pre, .mono {
 .hero-bg-base {
   position: absolute;
   inset: 0;
-  background: #0a0a0f;
+  background: #0B0D14;
   z-index: 0;
 }
 
@@ -496,7 +496,7 @@ code, pre, .mono {
   left: 0;
   right: 0;
   height: 120px;
-  background: linear-gradient(to bottom, transparent 0%, #000000 100%);
+  background: linear-gradient(to bottom, transparent 0%, #0B0D14 100%);
   z-index: 5;
   pointer-events: none;
 }
@@ -869,7 +869,7 @@ code, pre, .mono {
   }
 
   ::-webkit-scrollbar-track {
-    background: #111;
+    background: #0B0D14;
   }
 
   ::-webkit-scrollbar-thumb {
