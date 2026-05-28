@@ -41,6 +41,10 @@ export const metadata: Metadata = {
     description:
       'Automatiza tu atención al cliente, captura leads y gestiona citas con agentes de IA 24/7.',
   },
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({
