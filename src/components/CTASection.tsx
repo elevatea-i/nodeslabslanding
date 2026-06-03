@@ -19,8 +19,8 @@ const CTASection: React.FC = () => {
       try {
         // Prefetch the contact form component
         await import('@/components/ContactForm');
-      } catch (error) {
-        console.error('Error prefetching ContactForm:', error);
+      } catch {
+        // prefetch failed silently
       }
     };
 

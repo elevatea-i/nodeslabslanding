@@ -182,11 +182,9 @@ const translations = {
     'contact.fieldRemaining': 'campo más para enviar',
     'contact.fieldsRemaining': 'campos más para enviar',
     'contact.completeFields': 'Completa',
-    'contact.service.aiAgent': 'AI Agent',
-    'contact.service.leadCapture': 'Lead Capture',
-    'contact.service.appointmentManagement': 'Gestión de citas',
-    'contact.service.contentCreation': 'Creación de contenido',
-    'contact.service.websiteCreation': 'Creación de sitios web',
+    'contact.service.aiAgents': 'AI Agents',
+    'contact.service.productosDigitales': 'Productos Digitales',
+    'contact.service.contentMedia': 'Content & Media',
 
     // Hero lab section
     'hero.labHeadline': 'El laboratorio de IA detrás de tu siguiente nivel.',
@@ -380,11 +378,9 @@ const translations = {
     'contact.fieldRemaining': 'more field to submit',
     'contact.fieldsRemaining': 'more fields to submit',
     'contact.completeFields': 'Complete',
-    'contact.service.aiAgent': 'AI Agent',
-    'contact.service.leadCapture': 'Lead Capture',
-    'contact.service.appointmentManagement': 'Appointment Management',
-    'contact.service.contentCreation': 'Content Creation',
-    'contact.service.websiteCreation': 'Website Creation',
+    'contact.service.aiAgents': 'AI Agents',
+    'contact.service.productosDigitales': 'Digital Products',
+    'contact.service.contentMedia': 'Content & Media',
 
     // Hero lab section
     'hero.labHeadline': 'The AI lab behind your next level.',

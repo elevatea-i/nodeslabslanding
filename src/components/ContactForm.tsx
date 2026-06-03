@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { sanitizeInput, validateEmail, validateContent, checkRateLimit } from '@/lib/security';
 import { trackFormStart, trackFormSubmit } from '@/lib/analytics';
+import { supabase } from '@/lib/supabaseClient';
 import {
   validateFullName,
   validateEmailWithSuggestions,
@@ -136,11 +137,9 @@ const ContactForm: React.FC = () => {
   };
 
   const services = [
-    { key: 'AI Agent', labelKey: 'contact.service.aiAgent' },
-    { key: 'Lead Capture', labelKey: 'contact.service.leadCapture' },
-    { key: 'Appointment Management', labelKey: 'contact.service.appointmentManagement' },
-    { key: 'Content Creation', labelKey: 'contact.service.contentCreation' },
-    { key: 'Website Creation', labelKey: 'contact.service.websiteCreation' },
+    { key: 'AI Agents', labelKey: 'contact.service.aiAgents' },
+    { key: 'Productos Digitales', labelKey: 'contact.service.productosDigitales' },
+    { key: 'Content & Media', labelKey: 'contact.service.contentMedia' },
   ];
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
@@ -193,7 +192,20 @@ const ContactForm: React.FC = () => {
         return;
       }
 
-      console.log("Form submitted (DB disabled):", sanitizedData);
+      const { error: dbError } = await supabase
+        .from('contact_submissions')
+        .insert([{
+          full_name: sanitizedData.full_name,
+          email: sanitizedData.email,
+          company_name: sanitizedData.company_name,
+          service: sanitizedData.service,
+          problems: sanitizedData.problems,
+          additional_info: sanitizedData.additional_info ?? null,
+        }]);
+
+      if (dbError) {
+        throw new Error(dbError.message);
+      }
 
       trackFormSubmit();
       toast.success(t('contact.success'));
@@ -238,12 +250,17 @@ const ContactForm: React.FC = () => {
         </button>
 
         <div className="container mx-auto px-4 py-16 max-w-2xl">
-          <div className="bg-gray-900/80 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-gray-800">
+          <div
+            className="backdrop-blur-lg rounded-2xl p-8 shadow-xl border"
+            style={{
+              backgroundColor: 'rgba(26, 37, 64, 0.85)',
+              borderColor: '#2D4460'
+            }}
+          >
             <h1
               className="text-3xl font-bold text-center mb-8"
               style={{
-                color: '#8A829A',
-                textShadow: '0 0 20px rgba(138, 130, 154, 0.3)'
+                color: '#E4EDF4'
               }}
             >
               {t('contact.title')}
@@ -316,7 +333,7 @@ const ContactForm: React.FC = () => {
                         ? 'border-green-500/50 focus:ring-green-500'
                         : errors.fullName || (validationStates.fullName && !validationStates.fullName.isValid)
                         ? 'border-red-500 focus:ring-red-500'
-                        : 'focus:ring-[#ADC9FF]'
+                        : 'focus:ring-[#ADC9E0]'
                     }`}
                     style={{
                       fontSize: '1rem',
@@ -397,7 +414,7 @@ const ContactForm: React.FC = () => {
                         ? 'border-green-500/50 focus:ring-green-500'
                         : errors.email || (validationStates.email && !validationStates.email.isValid)
                         ? 'border-red-500 focus:ring-red-500'
-                        : 'focus:ring-[#ADC9FF]'
+                        : 'focus:ring-[#ADC9E0]'
                     }`}
                     style={{
                       fontSize: '1rem',
@@ -480,7 +497,7 @@ const ContactForm: React.FC = () => {
                         ? 'border-green-500/50 focus:ring-green-500'
                         : errors.companyName || (validationStates.companyName && !validationStates.companyName.isValid)
                         ? 'border-red-500 focus:ring-red-500'
-                        : 'focus:ring-[#ADC9FF]'
+                        : 'focus:ring-[#ADC9E0]'
                     }`}
                     style={{
                       fontSize: '1rem',
@@ -542,7 +559,7 @@ const ContactForm: React.FC = () => {
                       required: t('contact.selectService')
                     })}
                     className={`w-full px-4 py-3 rounded-lg focus:ring-2 focus:border-transparent transition-all duration-300 liquid-glass-form-input text-white appearance-none cursor-pointer hover:shadow-lg ${
-                      errors.service ? 'border-red-500 focus:ring-red-500' : 'focus:ring-[#ADC9FF]'
+                      errors.service ? 'border-red-500 focus:ring-red-500' : 'focus:ring-[#ADC9E0]'
                     }`}
                     style={{
                       fontSize: '1rem',
@@ -624,7 +641,7 @@ const ContactForm: React.FC = () => {
                         ? validationStates.problems?.severity === 'warning'
                           ? 'border-yellow-500/50 focus:ring-yellow-500'
                           : 'border-red-500 focus:ring-red-500'
-                        : 'focus:ring-[#ADC9FF]'
+                        : 'focus:ring-[#ADC9E0]'
                     }`}
                     style={{
                       fontSize: '1rem',
@@ -700,7 +717,7 @@ const ContactForm: React.FC = () => {
                         ? 'border-green-500/50 focus:ring-green-500'
                         : errors.additionalInfo || (validationStates.additionalInfo && !validationStates.additionalInfo.isValid)
                         ? 'border-red-500 focus:ring-red-500'
-                        : 'focus:ring-[#ADC9FF]'
+                        : 'focus:ring-[#ADC9E0]'
                     }`}
                     style={{
                       fontSize: '1rem',
@@ -750,7 +767,7 @@ const ContactForm: React.FC = () => {
                   <span className="text-sm font-medium text-gray-300">
                     {t('contact.progressLabel')}
                   </span>
-                  <span className="text-sm font-medium text-[#ADC9FF]">
+                  <span className="text-sm font-medium text-[#ADC9E0]">
                     {filledFieldsCount}/{requiredFieldsCount}
                   </span>
                 </div>
@@ -765,7 +782,7 @@ const ContactForm: React.FC = () => {
                   <motion.div
                     className="h-full rounded-full transition-all duration-300"
                     style={{
-                      background: 'linear-gradient(90deg, #ADC9FF 0%, #9932CC 100%)',
+                      background: 'linear-gradient(90deg, #ADC9E0 0%, #444B8E 100%)',
                       width: `${progressPercentage}%`
                     }}
                     initial={{ width: 0 }}
@@ -793,13 +810,13 @@ const ContactForm: React.FC = () => {
                 disabled={isSubmitting}
                 className={`w-full text-white font-semibold py-4 px-6 rounded-lg 
                           transition-all duration-300 
-                          focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900
+                          focus:ring-2 focus:ring-[#444B8E] focus:ring-offset-2 focus:ring-offset-[#0B0D14]
                           flex items-center justify-center gap-2
                           ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-lg hover:scale-[1.02]'}`}
                 style={{
-                  background: isSubmitting 
-                    ? 'rgba(173, 201, 255, 0.5)' 
-                    : `linear-gradient(135deg, #ADC9FF 0%, var(--color-primary-purple) 100%)`,
+                  background: isSubmitting
+                    ? 'rgba(173, 201, 224, 0.5)'
+                    : `linear-gradient(135deg, #ADC9E0 0%, #444B8E 100%)`,
                   fontSize: '1rem',
                   letterSpacing: '0.025em',
                   lineHeight: '1.5',

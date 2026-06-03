@@ -11,6 +11,7 @@
   "dependencies": {
     "@netlify/plugin-nextjs": "^5.15.11",
     "@radix-ui/react-slot": "^1.2.3",
+    "@supabase/supabase-js": "^2.107.0",
     "@tailwindcss/typography": "^0.5.10",
     "@types/three": "^0.169.0",
     "class-variance-authority": "^0.7.1",

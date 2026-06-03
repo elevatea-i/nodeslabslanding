@@ -29,6 +29,18 @@
       "static/chunks/_app-pages-browser_src_components_MetricsSection_tsx.js"
     ]
   },
+  "app/page.tsx -> @/components/ProcessSection": {
+    "id": "app/page.tsx -> @/components/ProcessSection",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_ProcessSection_tsx.js"
+    ]
+  },
+  "app/page.tsx -> @/components/TechnologyBenefitsSection": {
+    "id": "app/page.tsx -> @/components/TechnologyBenefitsSection",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_TechnologyBenefitsSection_tsx.js"
+    ]
+  },
   "src/components/BenefitsSection.tsx -> @/components/ServiceDetailModal": {
     "id": "src/components/BenefitsSection.tsx -> @/components/ServiceDetailModal",
     "files": [
