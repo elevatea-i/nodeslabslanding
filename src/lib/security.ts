@@ -17,7 +17,6 @@ export const sanitizeInput = (input: string, maxLength: number = 1000): string =
     .trim()
     // Remove HTML tags and potential XSS vectors
     .replace(/<[^>]*>/g, '')
-    .replace(/[<>\"'&]/g, '')
     // Remove potential script injections
     .replace(/javascript:|data:|vbscript:|about:|chrome:|file:/gi, '')
     // Remove event handlers
@@ -25,8 +24,6 @@ export const sanitizeInput = (input: string, maxLength: number = 1000): string =
     // Remove eval and expression patterns that could trigger validation errors
     .replace(/eval\s*\(/gi, '')
     .replace(/expression\s*\(/gi, '')
-    // Remove SQL injection attempts
-    .replace(/(['";]|--|\/\*|\*\/|union|select|drop|delete|insert|update)/gi, '')
     // Limit length
     .substring(0, maxLength);
 };

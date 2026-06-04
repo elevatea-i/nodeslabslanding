@@ -15,7 +15,7 @@ const translations = {
     // Navbar
     'nav.home': 'Inicio',
     'nav.services': 'Servicios',
-    'nav.whyChooseUs': 'Por qué elegirnos',
+    'nav.whyChooseUs': 'La solución',
     'nav.contact': 'Contacto',
     'nav.switchLang': 'Change to English',
 
@@ -23,7 +23,7 @@ const translations = {
     'hero.title': 'Construimos sistemas de IA para que vendas más, gastes menos y crezcas más rápido',
     'hero.subtitle': 'Agentes IA que atienden, agendan y venden por tu negocio.',
     'hero.pain': 'Sin IA en tu negocio: Más costos, menos clientes y tu competencia ganándote.',
-    'hero.cta': 'Agenda tu diagnóstico gratis →',
+    'hero.cta': 'Agenda tu sesión sin costo →',
     'hero.proof': '✓ Sin compromisos',
     'hero.proof.nocommit': 'Sin compromisos',
     'hero.proof.results': 'Resultados desde la primera semana',
@@ -70,7 +70,7 @@ const translations = {
 
     // Why Choose Us Modal
     'whyChooseUs.title': '¿Por qué nuestros clientes eligen NodesLabs? | Tu negocio merece más.',
-    'whyChooseUs.intro': '¿Cansado de agencias que prometen mucho y entregan poco? Nosotros hacemos lo contrario: menos promesas, más resultados. Funciona desde la primera semana.',
+    'whyChooseUs.intro': '¿Listo para escalar? Nosotros hacemos lo contrario a las agencias: menos promesas, más resultados. Funciona desde la primera semana.',
     'whyChooseUs.benefits': [
       {
         title: 'Automatiza, crece y olvídate del estrés.',
@@ -101,7 +101,7 @@ const translations = {
     'pas.card3': 'Agentes que atienden.\nPlataformas que convierten.\nContenido que posiciona.\n\nUn laboratorio.\nTodo lo que necesitas.',
 
     // Benefits Section
-    'benefits.title': 'Potencia tu éxito empresarial.',
+    'benefits.title': 'Escala tu negocio con IA.',
     'benefits.aiAgent.title': 'Agentes IA',
     'benefits.aiAgent.desc': 'Ahorra tiempo y automatiza tu atención al cliente 24/7 con un procesamiento avanzado de lenguaje.',
     'benefits.leadCapture.title': 'Lead capture.',
@@ -113,7 +113,7 @@ const translations = {
 
     // Process Section
     'process.title': '¿Cómo elevamos tu negocio?',
-    'process.step1': 'Agenda tu diagnóstico sin costo.',
+    'process.step1': 'Agenda tu sesión sin costo.',
     'process.step2': 'Automatizamos tus procesos clave.',
     'process.step3': 'Crece, atrae más clientes y escala sin límites.',
 
@@ -123,7 +123,7 @@ const translations = {
     'cta.button': 'Automatiza y Gana Más',
 
     // Contact Form
-    'contact.title': 'Obtén tu diagnóstico gratuito.',
+    'contact.title': 'Hablemos de tu negocio.',
     'contact.back': 'Volver',
     'contact.fullName': 'Nombre completo',
     'contact.email': 'Correo electrónico',
@@ -211,7 +211,7 @@ const translations = {
     // Navbar
     'nav.home': 'Home',
     'nav.services': 'Services',
-    'nav.whyChooseUs': 'Why choose us',
+    'nav.whyChooseUs': 'The solution',
     'nav.contact': 'Contact',
     'nav.switchLang': 'Cambiar a Español',
 
@@ -219,7 +219,7 @@ const translations = {
     'hero.title': 'We build AI systems so you sell more, spend less, and grow faster',
     'hero.subtitle': 'AI Agents that answer, book, and sell for your business — nonstop.',
     'hero.pain': 'No AI in your business means higher costs, fewer clients, and your competition winning.',
-    'hero.cta': 'Book your free diagnosis →',
+    'hero.cta': 'Book your free session →',
     'hero.proof': '✓ No commitment',
     'hero.proof.nocommit': 'No commitment',
     'hero.proof.results': 'Results from week one',
@@ -266,7 +266,7 @@ const translations = {
 
     // Why Choose Us Modal
     'whyChooseUs.title': 'Why do our clients choose NodesLabs? | Your business deserves more.',
-    'whyChooseUs.intro': 'Tired of agencies that promise a lot and deliver little? We do the opposite: less promises, more results. It works from the first week.',
+    'whyChooseUs.intro': 'Ready to scale? We do the opposite of agencies: less promises, more results. It works from the first week.',
     'whyChooseUs.benefits': [
       {
         title: 'Automate, grow and forget about stress.',
@@ -309,7 +309,7 @@ const translations = {
 
     // Process Section
     'process.title': 'How do we elevate your business?',
-    'process.step1': 'Schedule your free diagnosis.',
+    'process.step1': 'Schedule your free session.',
     'process.step2': 'We automate your key processes.',
     'process.step3': 'Grow, attract more customers and scale without limits.',
 
@@ -319,7 +319,7 @@ const translations = {
     'cta.button': 'Automate & Gain More',
 
     // Contact Form
-    'contact.title': 'Get your free diagnosis.',
+    'contact.title': 'Let\'s talk about your business.',
     'contact.back': 'Back',
     'contact.fullName': 'Full Name',
     'contact.email': 'Email',

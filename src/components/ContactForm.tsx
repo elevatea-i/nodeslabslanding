@@ -9,6 +9,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { sanitizeInput, validateEmail, validateContent, checkRateLimit } from '@/lib/security';
 import { trackFormStart, trackFormSubmit } from '@/lib/analytics';
 import { supabase } from '@/lib/supabaseClient';
+import { toast } from 'react-toastify';
 import {
   validateFullName,
   validateEmailWithSuggestions,
@@ -199,7 +200,8 @@ const ContactForm: React.FC = () => {
         }]);
 
       if (dbError) {
-        throw new Error(dbError.message);
+        console.error('[DB]', dbError.code ?? 'insert_error');
+        throw new Error('database_error');
       }
 
       trackFormSubmit();
@@ -207,8 +209,13 @@ const ContactForm: React.FC = () => {
       setValidationStates({});
       setShowValidationSummary(false);
       router.push('/thank-you');
-    } catch (error) {
-      console.error('Form submission error:', error);
+    } catch (err) {
+      const isDbError = err instanceof Error &&
+        err.message === 'database_error';
+      console.error('[Form]', isDbError
+        ? 'db_error'
+        : 'unexpected_error');
+      toast.error(t('contact.error'));
     }
   };
 

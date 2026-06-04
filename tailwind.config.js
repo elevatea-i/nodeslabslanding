@@ -58,8 +58,6 @@ module.exports = {
         mono:    ['"DM Mono"', '"Fira Code"', 'ui-monospace', 'monospace'],
         /* Legacy aliases kept for backwards compatibility */
         syne: ['var(--font-jakarta)', 'system-ui', '-apple-system', 'sans-serif'],
-        sora: ['var(--font-jakarta)', 'system-ui', '-apple-system', 'sans-serif'],
-        inter: ['var(--font-jakarta)', 'system-ui', '-apple-system', 'sans-serif'],
       },
       screens: {
         'xs': '375px',

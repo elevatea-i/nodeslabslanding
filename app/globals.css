@@ -25,18 +25,9 @@
   /* Legacy variables — kept for backwards compatibility with existing components */
   --primary-black: #000000;
   --primary-white: #FFFFFF;
-  --azul-premium: #ADC9FF;
-  --accent-purple: #9932CC;
-  --gradient-primary: linear-gradient(135deg, #ADC9FF 0%, #9932CC 100%);
+  --azul-premium: var(--frost);
   --text-muted: rgba(255, 255, 255, 0.7);
   --border-subtle: rgba(173, 201, 255, 0.1);
-  --color-primary-blue: #ADC9FF;
-  --color-primary-purple: #9932CC;
-  --color-glass-blue: #ADC9FF;
-  --color-glass-purple: #9932CC;
-  --cyan: #ADC9FF;
-  --purple: #9932CC;
-  --dark-blue: #ADC9FF;
   color-scheme: dark;
   --text-primary: #FFFFFF;
   --text-secondary: rgba(255, 255, 255, 0.7);
@@ -53,7 +44,7 @@
   --text-3xl: 1.875rem;
   --text-4xl: 2.25rem;
   --leading-tight: 1.25;
-  --leading-normal: 1.6;
+  --leading-normal: 1.5;
   --leading-relaxed: 1.6;
   --leading-loose: 2;
   --tracking-normal: 0;
@@ -70,9 +61,6 @@
     text-size-adjust: 100%;
     height: 100%;
     min-height: -webkit-fill-available;
-    /* Improve font rendering */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
 
@@ -335,15 +323,9 @@
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
-    
+
     .liquid-glass-form-input {
       transition: none !important;
-    }
-  }
-  
-  /* Large text preference support */
-  @media (prefers-reduced-motion: reduce) {
-    .liquid-glass-form-input {
       backdrop-filter: none !important;
       -webkit-backdrop-filter: none !important;
       background: rgba(26, 26, 26, 0.95) !important;
@@ -892,18 +874,6 @@ code, pre, .mono {
   }
 }
 
-/* Respect reduced motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
 /* ENHANCED LIQUID GLASS KEYFRAMES */
 @keyframes wave-gradient {
   0% {
@@ -986,6 +956,15 @@ code, pre, .mono {
   * {
     scrollbar-width: thin;
     scrollbar-color: #333 #111;
+  }
+
+  .liquid-glass-form-input {
+    background-color: rgba(26, 26, 26, 0.8) !important;
+  }
+
+  .liquid-glass-form-input option {
+    background-color: #1a1a1a !important;
+    color: #FFFFFF !important;
   }
 }
 
@@ -1081,18 +1060,6 @@ code, pre, .mono {
   background-color: #1a1a1a !important;
   color: #FFFFFF !important;
   padding: 8px 12px;
-}
-
-/* Firefox specific fixes */
-@-moz-document url-prefix() {
-  .liquid-glass-form-input {
-    background-color: rgba(26, 26, 26, 0.8) !important;
-  }
-  
-  .liquid-glass-form-input option {
-    background-color: #1a1a1a !important;
-    color: #FFFFFF !important;
-  }
 }
 
 /* Safari specific improvements */

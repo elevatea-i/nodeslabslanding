@@ -158,7 +158,7 @@ const Navbar: React.FC = () => {
                   <div className="flex items-center">
                     <div className="flex-shrink-0 flex items-center gap-1">
                       <motion.span
-                        className="font-bold font-sora transition-all duration-500"
+                        className="font-bold transition-all duration-500"
                         style={{
                           fontSize: '1.25rem',
                           fontWeight: 600,
@@ -186,7 +186,7 @@ const Navbar: React.FC = () => {
                           href={item.href}
                           role="listitem"
                           aria-current={isCurrent ? 'page' : undefined}
-                          className="group relative px-5 py-3 rounded-xl font-medium transition-all duration-300 font-inter focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+                          className="group relative px-5 py-3 rounded-xl font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
                           style={{
                             color: 'rgba(255, 255, 255, 1)',
                             fontSize: '0.75rem',
@@ -204,7 +204,7 @@ const Navbar: React.FC = () => {
                     <motion.button
                       onClick={handleContactClick}
                       onMouseEnter={handleContactHover}
-                      className="group relative px-5 py-3 rounded-xl font-medium transition-all duration-300 font-inter focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+                      className="group relative px-5 py-3 rounded-xl font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
                       style={{
                         color: 'rgba(255, 255, 255, 1)',
                         fontSize: '0.75rem',
@@ -219,7 +219,7 @@ const Navbar: React.FC = () => {
 
                     <motion.button
                       onClick={toggleLanguage}
-                      className="group relative p-3 rounded-xl transition-all duration-300 flex items-center gap-2 font-inter liquid-glass-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+                      className="group relative p-3 rounded-xl transition-all duration-300 flex items-center gap-2 liquid-glass-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
                       style={{ color: 'rgba(255, 255, 255, 1)', textDecoration: 'none' }}
                       aria-label={langLabel}
                       whileHover={prefersReducedMotion ? {} : { y: -2, scale: 1.05 }}
@@ -291,7 +291,7 @@ const Navbar: React.FC = () => {
                           key={index}
                           href={item.href}
                           aria-current={isCurrent ? 'page' : undefined}
-                          className="group relative block px-5 py-4 rounded-xl text-sm font-medium font-inter transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+                          className="group relative block px-5 py-4 rounded-xl text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
                           style={{
                             color: 'rgba(255, 255, 255, 1)',
                             fontWeight: isCurrent ? 700 : 500,
@@ -308,7 +308,7 @@ const Navbar: React.FC = () => {
                     <motion.button
                       onClick={handleContactClick}
                       onMouseEnter={handleContactHover}
-                      className="group relative block px-5 py-4 rounded-xl text-sm font-medium w-full text-left font-inter transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+                      className="group relative block px-5 py-4 rounded-xl text-sm font-medium w-full text-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
                       style={{ color: 'rgba(255, 255, 255, 1)', textDecoration: 'none' }}
                       variants={menuItemVariants}
                     >
@@ -317,7 +317,7 @@ const Navbar: React.FC = () => {
 
                     <motion.button
                       onClick={toggleLanguage}
-                      className="group relative flex items-center px-5 py-4 rounded-xl text-sm font-medium w-full font-inter transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+                      className="group relative flex items-center px-5 py-4 rounded-xl text-sm font-medium w-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
                       style={{ color: 'rgba(255, 255, 255, 1)', textDecoration: 'none' }}
                       aria-label={langLabel}
                       variants={menuItemVariants}

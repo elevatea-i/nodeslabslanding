@@ -31,7 +31,7 @@ const PASSection: React.FC = () => {
                 className="h-full"
               >
                 <GlareCard className="flex flex-col justify-center items-center text-center lg:items-start lg:text-left p-6 h-full">
-                  <div className="text-lg sm:text-xl xl:text-2xl font-inter font-medium text-white whitespace-pre-line" style={{ lineHeight: '1.6' }}>
+                  <div className="text-lg sm:text-xl xl:text-2xl font-medium text-white whitespace-pre-line" style={{ lineHeight: '1.6' }}>
                     {t('pas.card1')}
                   </div>
                 </GlareCard>
@@ -47,7 +47,7 @@ const PASSection: React.FC = () => {
                 className="h-full"
               >
                 <GlareCard className="flex flex-col justify-center items-center text-center lg:items-start lg:text-left p-6 h-full">
-                  <div className="text-lg sm:text-xl xl:text-2xl font-inter font-medium text-white whitespace-pre-line" style={{ lineHeight: '1.6' }}>
+                  <div className="text-lg sm:text-xl xl:text-2xl font-medium text-white whitespace-pre-line" style={{ lineHeight: '1.6' }}>
                     {t('pas.card2')}
                   </div>
                 </GlareCard>
@@ -63,7 +63,7 @@ const PASSection: React.FC = () => {
                 className="h-full"
               >
                 <GlareCard className="flex flex-col justify-center items-center text-center lg:items-start lg:text-left p-6 h-full">
-                  <div className="text-lg sm:text-xl xl:text-2xl font-inter font-medium text-white whitespace-pre-line" style={{ lineHeight: '1.6' }}>
+                  <div className="text-lg sm:text-xl xl:text-2xl font-medium text-white whitespace-pre-line" style={{ lineHeight: '1.6' }}>
                     {t('pas.card3')}
                   </div>
                 </GlareCard>

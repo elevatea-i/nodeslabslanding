@@ -95,7 +95,7 @@ const AIToolsCarousel: React.FC = () => {
           viewport={{ once: true }}
         >
           <h2
-            className="text-2xl sm:text-3xl lg:text-4xl font-sora font-semibold mb-4"
+            className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-4"
             style={{ lineHeight: '1.6', color: '#FFFFFF' }}
           >
             {language === 'es'
@@ -131,7 +131,7 @@ const AIToolsCarousel: React.FC = () => {
                     }}
                   />
                 </div>
-                <span className="text-xs font-medium text-white font-inter text-center leading-tight">
+                <span className="text-xs font-medium text-white text-center leading-tight">
                   {tool.name}
                 </span>
                 <span className="text-xs text-center" style={{ color: 'rgba(255,255,255,0.55)' }}>
@@ -197,7 +197,7 @@ const AIToolsCarousel: React.FC = () => {
                       className="bg-gray-900/90 backdrop-blur-sm px-3 py-1 rounded-lg border whitespace-nowrap"
                       style={{ borderColor: 'var(--border-subtle)' }}
                     >
-                      <span className="text-xs sm:text-sm font-medium text-white font-inter">
+                      <span className="text-xs sm:text-sm font-medium text-white">
                         {tool.name}
                       </span>
                       <div
