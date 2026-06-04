@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Globe, Menu, X } from 'lucide-react';
 import { useRouter, usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -9,11 +9,8 @@ import { throttle } from '@/lib/performance';
 import { trackCTAClick, trackLanguageSwitch } from '@/lib/analytics';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
-const WhyChooseUsModal = lazy(() => import('@/components/WhyChooseUsModal'));
-
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
   const router = useRouter();
   const pathname = usePathname();
@@ -21,7 +18,7 @@ const Navbar: React.FC = () => {
   const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
   const isDesktop = useMediaQuery('(min-width: 1024px)');
 
-  const shouldShowNavbar = pathname === '/' && !isModalOpen;
+  const shouldShowNavbar = pathname === '/';
 
   const toggleLanguage = useCallback(() => {
     const newLang = language === 'es' ? 'en' : 'es';
@@ -53,31 +50,20 @@ const Navbar: React.FC = () => {
   // Close on Escape and restore focus
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        if (isMenuOpen) {
-          closeMenu();
-        }
-        if (isModalOpen) {
-          setIsModalOpen(false);
-        }
+      if (e.key === 'Escape' && isMenuOpen) {
+        closeMenu();
       }
     };
 
-    if (isMenuOpen || isModalOpen) {
+    if (isMenuOpen) {
       document.addEventListener('keydown', handleEscape);
       return () => document.removeEventListener('keydown', handleEscape);
     }
-  }, [isMenuOpen, isModalOpen, closeMenu]);
+  }, [isMenuOpen, closeMenu]);
 
   useEffect(() => {
     setIsMenuOpen(false);
   }, [pathname]);
-
-  useEffect(() => {
-    if (isModalOpen) {
-      setIsMenuOpen(false);
-    }
-  }, [isModalOpen]);
 
   const motionDuration = prefersReducedMotion ? 0 : 0.2;
 
@@ -346,10 +332,6 @@ const Navbar: React.FC = () => {
           </motion.nav>
         )}
       </AnimatePresence>
-
-      <Suspense fallback={null}>
-        <WhyChooseUsModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-      </Suspense>
     </>
   );
 };

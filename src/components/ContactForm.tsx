@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { ArrowLeft, Send, CheckCircle, AlertCircle, Info, Check, X } from 'lucide-react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { toast } from 'react-toastify';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { sanitizeInput, validateEmail, validateContent, checkRateLimit } from '@/lib/security';
@@ -164,12 +163,10 @@ const ContactForm: React.FC = () => {
 
       if (validationErrors.length > 0) {
         setShowValidationSummary(true);
-        toast.error(t('contact.validationErrors'));
         return;
       }
 
       if (!checkRateLimit('contact_form', 3, 300000)) {
-        toast.error(t('contact.rateLimitError'));
         return;
       }
 
@@ -183,12 +180,10 @@ const ContactForm: React.FC = () => {
       };
 
       if (!validateEmail(sanitizedData.email)) {
-        toast.error(t('contact.invalidEmail'));
         return;
       }
 
       if (!validateContent(sanitizedData.problems, 10, 1000)) {
-        toast.error(t('contact.invalidContent'));
         return;
       }
 
@@ -208,16 +203,12 @@ const ContactForm: React.FC = () => {
       }
 
       trackFormSubmit();
-      toast.success(t('contact.success'));
       reset();
       setValidationStates({});
       setShowValidationSummary(false);
-      setTimeout(() => {
-        router.push('/thank-you');
-      }, 1500);
+      router.push('/thank-you');
     } catch (error) {
       console.error('Form submission error:', error);
-      toast.error(t('contact.error'));
     }
   };
 

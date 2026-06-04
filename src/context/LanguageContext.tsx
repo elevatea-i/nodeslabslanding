@@ -202,7 +202,7 @@ const translations = {
 
     // Thank You Page
     'thanks.title': '¡Gracias por contactarnos!',
-    'thanks.message': 'Nos pondremos en contacto contigo pronto para comenzar tu transformación digital.',
+    'thanks.message': 'Alguien del laboratorio te escribirá en las próximas 24 horas.',
     'thanks.redirect': 'Redirigiendo en',
     'thanks.redirect.seconds': 'segundos...',
     'thanks.back': 'Volver al inicio'
@@ -398,7 +398,7 @@ const translations = {
 
     // Thank You Page
     'thanks.title': 'Thank you for contacting us!',
-    'thanks.message': 'We will contact you soon to start your digital transformation.',
+    'thanks.message': 'Someone from the lab will reach out within the next 24 hours.',
     'thanks.redirect': 'Redirecting in',
     'thanks.redirect.seconds': 'seconds...',
     'thanks.back': 'Back to home'

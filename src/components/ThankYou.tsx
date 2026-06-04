@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { CheckCircle, ArrowLeft } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
-const COUNTDOWN_SECONDS = 8;
+const COUNTDOWN_SECONDS = 5;
 
 const ThankYou: React.FC = () => {
   const router = useRouter();

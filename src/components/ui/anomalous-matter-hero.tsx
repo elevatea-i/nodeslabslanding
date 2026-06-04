@@ -191,6 +191,7 @@ export function AnomalousMatterHero() {
 
   return (
     <section
+      id="inicio"
       role="banner"
       className="relative w-full min-h-screen overflow-hidden"
       style={{ backgroundColor: "#0B0D14" }}

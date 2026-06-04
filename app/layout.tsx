@@ -16,30 +16,48 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'NodesLabs: Automatización IA, Chatbots, Contenido y Web en México',
-  description:
-    'NodesLabs: Agentes IA y chatbots para tu negocio en México. Automatiza atención, captura leads, gestiona citas, crea contenido y sitios web.',
-  keywords:
-    'automatización, agentes IA, chatbots, lead capture, gestión de citas, atención al cliente 24/7, inteligencia artificial, NodesLabs, automatización de procesos',
+  title: 'NodesLabs — Laboratorio de IA para tu negocio',
+  description: 'Construimos agentes de voz, productos digitales y contenido con IA para empresas en México y LATAM. Automatiza tu operación y escala sin contratar más personal.',
+  keywords: [
+    'laboratorio de inteligencia artificial',
+    'agentes de voz',
+    'automatización empresarial',
+    'AI agents México',
+    'agentes IA LATAM',
+    'productos digitales',
+    'automatización de procesos',
+    'NodesLabs',
+    'agentes de atención al cliente',
+    'reserva de citas automática',
+  ],
   authors: [{ name: 'NodesLabs' }],
+  creator: 'NodesLabs',
+  publisher: 'NodesLabs',
   metadataBase: new URL('https://nodeslabs.com'),
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
-    title: 'NodesLabs.com - Automatiza tu Negocio con IA | Agentes IA, Lead Capture y Gestión de Citas',
-    description:
-      'Automatiza tu atención al cliente, captura leads y gestiona citas con agentes de IA 24/7. NodesLabs transforma tu negocio con tecnología de automatización inteligente.',
-    type: 'website',
+    title: 'NodesLabs — Laboratorio de IA para tu negocio',
+    description: 'Agentes de voz, productos digitales y contenido con IA. Un laboratorio construido para escalar tu negocio sin escalar tu equipo.',
     url: 'https://nodeslabs.com',
     siteName: 'NodesLabs',
     locale: 'es_MX',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NodesLabs.com - Automatiza tu Negocio con IA',
-    description:
-      'Automatiza tu atención al cliente, captura leads y gestiona citas con agentes de IA 24/7.',
+    title: 'NodesLabs — Laboratorio de IA',
+    description: 'Agentes de voz, productos digitales y contenido con IA para empresas en México y LATAM.',
+    creator: '@nodeslabs',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: 'https://nodeslabs.com',
   },
   icons: {
     icon: '/favicon.svg',
@@ -78,26 +96,18 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'Organization',
+              '@type': 'ProfessionalService',
               name: 'NodesLabs',
+              description: 'Laboratorio de IA que construye agentes de voz, productos digitales y contenido generativo para empresas en México y LATAM.',
               url: 'https://nodeslabs.com',
-              sameAs: [
-                'https://www.facebook.com/share/12HsCX6rKCK/?mibextid=wwXIfr',
-                'https://www.instagram.com/nodeslabs?igsh=Ym8yMWxvcHc2dzlh&utm_source=qr',
-                'https://www.linkedin.com/in/nodeslabs-ab6266256?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+              areaServed: ['México', 'LATAM', 'USA'],
+              serviceType: [
+                'AI Agents',
+                'Automatización empresarial',
+                'Productos digitales',
+                'Content & Media',
               ],
-              description: 'Automatización de procesos empresariales con inteligencia artificial',
-              services: [
-                'Agentes de IA',
-                'Lead Capture',
-                'Gestión de Citas',
-                'Atención al Cliente 24/7',
-              ],
-              contactPoint: {
-                '@type': 'ContactPoint',
-                email: 'contact@nodeslabs.mx',
-                contactType: 'customer service',
-              },
+              email: 'axel@nodeslabs.com',
             }),
           }}
         />

@@ -61,10 +61,8 @@ const Breadcrumbs: React.FC = () => {
 
   const breadcrumbs = getBreadcrumbs();
 
-  // Don't show breadcrumbs on home page or contact page
-  if (pathname === '/' || pathname === '/contact' || pathname === '/aviso-privacidad') {
-    return null;
-  }
+  const hiddenRoutes = ['/', '/contact', '/contacto', '/thank-you', '/aviso-privacidad'];
+  if (hiddenRoutes.includes(pathname)) return null;
 
   return (
     <nav 

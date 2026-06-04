@@ -16,8 +16,7 @@ const SECTIONS: Section[] = [
   { id: 'automatizacion', labelEs: 'Automatización', labelEn: 'Automation' },
   { id: 'pas',            labelEs: 'Estrategia',     labelEn: 'Strategy' },
   { id: 'servicios',      labelEs: 'Servicios',      labelEn: 'Services' },
-  { id: 'proceso',        labelEs: 'Proceso',        labelEn: 'Process' },
-  { id: 'tecnologia',     labelEs: 'Tecnología',     labelEn: 'Technology' },
+  { id: 'metricas',       labelEs: 'Resultados',     labelEn: 'Results' },
   { id: 'herramientas',   labelEs: 'Herramientas',   labelEn: 'Tools' },
   { id: 'contacto',       labelEs: 'Contacto',       labelEn: 'Contact' },
 ];
@@ -52,7 +51,7 @@ const ScrollSidebar: React.FC = () => {
       },
       {
         root: null,
-        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+        threshold: [0, 0.25, 0.5, 0.75, 1.0],
         rootMargin: '-5% 0px -5% 0px',
       }
     );
@@ -127,7 +126,7 @@ const ScrollSidebar: React.FC = () => {
                             color: isActive
                               ? 'rgba(255,255,255,0.95)'
                               : 'rgba(255,255,255,0.55)',
-                            fontFamily: 'Inter, sans-serif',
+                            fontFamily: '"Plus Jakarta Sans", sans-serif',
                             letterSpacing: '0.03em',
                             textShadow: '0 1px 6px rgba(0,0,0,0.9)',
                           }}
