@@ -46,7 +46,9 @@ export default function HomePage() {
           </div>
         }
       >
-        <BenefitsSection />
+        <div id="servicios">
+          <BenefitsSection />
+        </div>
         <MetricsSection />
         <AIToolsCarousel />
         <CTASection />

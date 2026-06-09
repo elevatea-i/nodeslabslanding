@@ -190,7 +190,7 @@ const translations = {
     'hero.labHeadline': 'El laboratorio de IA detrás de tu siguiente nivel.',
     'hero.labSubtitle': 'Construimos los sistemas que tu negocio necesita para crecer.',
     'hero.labCta1': 'Empecemos a construir →',
-    'hero.labCta2': 'Ver nuestro trabajo',
+    'hero.labCta2': 'Ver resultados',
 
     // Automation section headers
     'automation.sectionTitle': 'Un agente para cada parte de tu operación.',
@@ -386,7 +386,7 @@ const translations = {
     'hero.labHeadline': 'The AI lab behind your next level.',
     'hero.labSubtitle': 'We build the systems your business needs to grow.',
     'hero.labCta1': "Let's start building →",
-    'hero.labCta2': 'See our work',
+    'hero.labCta2': 'See results',
 
     // Automation section headers
     'automation.sectionTitle': 'One agent for every part of your operation.',

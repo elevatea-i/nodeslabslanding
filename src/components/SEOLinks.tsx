@@ -9,16 +9,16 @@ export const FooterSEOLinks: React.FC = () => {
     {
       title: language === 'es' ? 'Servicios' : 'Services',
       links: [
-        { to: '/soluciones', text: language === 'es' ? 'AI Agents.' : 'AI Agents.' },
-        { to: '/soluciones', text: language === 'es' ? 'Productos Digitales.' : 'Digital Products.' },
-        { to: '/soluciones', text: language === 'es' ? 'Content & Media.' : 'Content & Media.' }
+        { to: '/#servicios', text: language === 'es' ? 'AI Agents.' : 'AI Agents.' },
+        { to: '/#servicios', text: language === 'es' ? 'Productos Digitales.' : 'Digital Products.' },
+        { to: '/#servicios', text: language === 'es' ? 'Content & Media.' : 'Content & Media.' }
       ]
     },
     {
       title: language === 'es' ? 'Compañía.' : 'Company.',
       links: [
         { to: '/nosotros', text: language === 'es' ? 'Nosotros.' : 'About Us.' },
-        { to: '/contacto', text: language === 'es' ? 'Contacto.' : 'Contact.' },
+        { to: '/contact', text: language === 'es' ? 'Contacto.' : 'Contact.' },
         { to: '/aviso-privacidad', text: language === 'es' ? 'Aviso de Privacidad.' : 'Privacy Policy.' }
       ]
     }

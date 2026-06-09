@@ -260,7 +260,7 @@ export function AnomalousMatterHero() {
           className="flex flex-col sm:flex-row gap-3 mb-8"
         >
           <a
-            href="#"
+            href="/contact"
             className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-colors duration-200"
             style={{
               borderRadius: "9999px",
@@ -278,7 +278,8 @@ export function AnomalousMatterHero() {
             {t('hero.labCta1')}
           </a>
           <a
-            href="/trabajo"
+            href="/#metricas"
+            onClick={(e) => { e.preventDefault(); document.getElementById('metricas')?.scrollIntoView({ behavior: 'smooth' }); }}
             className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-colors duration-200"
             style={{
               borderRadius: "9999px",

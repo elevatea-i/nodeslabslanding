@@ -637,9 +637,7 @@ video {
   }
   
   a:focus {
-    outline: 2px solid var(--focus-ring);
-    outline-offset: 2px;
-    border-radius: 2px;
+    outline: none;
   }
 
   /* Improved form element styling */
@@ -666,11 +664,15 @@ video {
   /* Enhanced focus styles for accessibility */
   input:focus,
   textarea:focus,
-  button:focus,
   select:focus {
     outline: 2px solid var(--focus-ring);
     outline-offset: 2px;
     border-radius: 8px;
+  }
+
+  /* Suppress focus ring on buttons for mouse/touch — keyboard users get focus-visible below */
+  button:focus {
+    outline: none;
   }
 
   /* Override focus styles for liquid glass inputs to maintain design while keeping accessibility */

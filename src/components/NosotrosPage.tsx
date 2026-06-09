@@ -28,7 +28,7 @@ const services = [
   },
   {
     title: 'Productos Digitales',
-    desc: 'La presencia que convierte. Sitios y sistemas que trabajan mientras tú creces.',
+    desc: 'La presencia digital que convierte. Sitios y sistemas que trabajan mientras tú creces.',
   },
   {
     title: 'Content & Media',
@@ -66,20 +66,20 @@ export default function NosotrosPage() {
               margin: 0,
             }}
           >
-            Vimos cómo los negocios dejaban ir oportunidades que nunca deberían perder. Por eso construimos NodesLabs.
+            Vimos cómo negocios dejaban ir oportunidades que nunca deberían perder. Por eso construimos NodesLabs.
           </motion.h1>
         </section>
 
         {/* Section 2 — Qué Creemos */}
         <section style={{ paddingTop: '96px', paddingBottom: '96px' }}>
           <motion.p style={eyebrowStyle} {...fadeUp(0)}>
-            Qué Creemos
+            ¿Qué creemos?
           </motion.p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', maxWidth: '640px' }}>
             {[
-              'Leads que llegaban de noche y nadie contestaba. Equipos repitiendo las mismas respuestas todos los días. Negocios con buen producto que nadie encontraba al buscarlo en Google, o que necesitaban un CRM, un MVP, una solución específica a la medida de lo que su operación requería. Lo vimos repetirse una y otra vez.',
-              'Creemos que para crecer no necesitas más personas. Necesitas mejores sistemas. Un agente puede atender, calificar y dar seguimiento con el mismo trato que tú le darías a tus clientes, a cualquier hora, sin cansarse nunca.',
-              'Por eso somos un laboratorio. Cada solución la construimos para lo que tu negocio necesita específicamente. No hay un paquete que le damos a todos. No hay intermediarios. Solo trabajo directo con resultados que se miden.',
+              'Leads que llegaban de noche y nadie contestaba, equipos repitiendo las mismas respuestas todos los días, negocios con buen producto que nadie encontraba al buscarlo en Google, o que necesitaban un CRM, MVP o una solución específica a la medida de lo que su operación requería, lo vimos repetirse una y otra vez.',
+              'Creemos que para crecer no necesitas más personas, necesitas mejores sistemas. Un agente puede atender, calificar y dar seguimiento con el mismo trato que tú le darías a tus clientes, a cualquier hora.',
+              'Por eso somos un laboratorio, cada solución la construimos para lo que tu negocio necesita específicamente. No hay un paquete que le damos a todos, no hay intermediarios. Solo trabajo directo con resultados que se miden.',
             ].map((text, i) => (
               <motion.p
                 key={i}
@@ -100,7 +100,7 @@ export default function NosotrosPage() {
         {/* Section 3 — Cómo Trabajamos */}
         <section style={{ paddingTop: '96px', paddingBottom: '96px' }}>
           <motion.p style={eyebrowStyle} {...fadeUp(0)}>
-            Cómo Trabajamos
+            ¿Cómo trabajamos?
           </motion.p>
           <div
             style={{

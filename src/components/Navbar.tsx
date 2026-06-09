@@ -95,10 +95,9 @@ const Navbar: React.FC = () => {
   };
 
   const navItems = [
-    { href: "/Inicio/home", text: language === 'es' ? 'Inicio' : 'Home' },
-    { href: "/servicios", text: language === 'es' ? 'Soluciones' : 'Solutions' },
+    { href: "/#", text: language === 'es' ? 'Inicio' : 'Home' },
+    { href: "/#servicios", text: language === 'es' ? 'Soluciones' : 'Solutions' },
     { href: "/nosotros", text: language === 'es' ? 'Nosotros' : 'About' },
-    { href: "/contacto", text: language === 'es' ? 'Contacto' : 'Contact' }
   ];
 
   const langLabel = language === 'es'
@@ -297,7 +296,20 @@ const Navbar: React.FC = () => {
                             fontWeight: isCurrent ? 700 : 500,
                             textDecoration: 'none'
                           }}
-                          onClick={() => setIsMenuOpen(false)}
+                          onClick={(e) => {
+                            const hash = item.href.startsWith('/#') ? item.href.slice(1) : null;
+                            if (hash) {
+                              e.preventDefault();
+                              setIsMenuOpen(false);
+                              setTimeout(() => {
+                                const el = document.getElementById(hash.slice(1));
+                                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                                else window.location.hash = hash;
+                              }, 300);
+                            } else {
+                              setIsMenuOpen(false);
+                            }
+                          }}
                           variants={menuItemVariants}
                         >
                           <span className="relative z-10">{item.text}</span>
