@@ -1,4 +1,10 @@
 {
+  "app/contact/page.tsx -> @/components/ContactForm": {
+    "id": "app/contact/page.tsx -> @/components/ContactForm",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_ContactForm_tsx-_aeb30.js"
+    ]
+  },
   "app/page.tsx -> @/components/AIToolsCarousel": {
     "id": "app/page.tsx -> @/components/AIToolsCarousel",
     "files": [
@@ -38,13 +44,13 @@
   "src/components/CTASection.tsx -> @/components/ContactForm": {
     "id": "src/components/CTASection.tsx -> @/components/ContactForm",
     "files": [
-      "static/chunks/_app-pages-browser_src_components_ContactForm_tsx-_aeb30.js"
+      "static/chunks/_app-pages-browser_src_components_ContactForm_tsx-_aeb31.js"
     ]
   },
   "src/components/Navbar.tsx -> @/components/ContactForm": {
     "id": "src/components/Navbar.tsx -> @/components/ContactForm",
     "files": [
-      "static/chunks/_app-pages-browser_src_components_ContactForm_tsx-_aeb31.js"
+      "static/chunks/_app-pages-browser_src_components_ContactForm_tsx-_aeb32.js"
     ]
   }
 }
