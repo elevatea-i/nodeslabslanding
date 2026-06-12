@@ -71,7 +71,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
+    <html lang="es" style={{ backgroundColor: '#0B0D14' }}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -112,11 +112,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${plusJakarta.variable} bg-black safari-fix`}>
+      <body className={`${plusJakarta.variable} safari-fix`} style={{ backgroundColor: '#0B0D14', minHeight: '100vh' }}>
         <Providers>
           <Navbar />
           <Breadcrumbs />
-          <div className="min-h-screen bg-black text-white relative main-content flex">
+          <div className="min-h-screen text-white relative main-content flex" style={{ backgroundColor: '#0B0D14' }}>
             <div className="flex-1 min-w-0">
               <ErrorBoundary>
                 {children}

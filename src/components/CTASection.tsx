@@ -47,7 +47,7 @@ const CTASection: React.FC = () => {
   };
 
   return (
-    <section id="contacto" className="relative section-spacing" style={{ background: '#000' }}>
+    <section id="contacto" className="relative section-spacing" style={{ background: '#0B0D14' }}>
       <div className="relative z-20 top-tier-container">
         {/* Premium CTA Container */}
         <motion.div

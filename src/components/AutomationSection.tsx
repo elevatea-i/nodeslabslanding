@@ -69,7 +69,7 @@ const AutomationSection: React.FC = () => {
   };
 
   return (
-    <section id="automatizacion" className="relative w-full bg-black section-spacing">
+    <section id="automatizacion" className="relative w-full section-spacing" style={{ backgroundColor: '#0B0D14' }}>
       <div className="flex flex-col justify-start items-center pt-16">
 
         {/* Header block above card */}

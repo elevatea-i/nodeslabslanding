@@ -29,7 +29,7 @@ const ThankYou: React.FC = () => {
   }, [router]);
 
   return (
-    <div className="min-h-screen bg-black relative flex items-center justify-center">
+    <div className="min-h-screen relative flex items-center justify-center" style={{ backgroundColor: '#0B0D14' }}>
       <div className="relative z-10 w-full">
         <button
           onClick={() => router.push('/')}

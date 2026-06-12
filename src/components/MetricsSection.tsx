@@ -98,7 +98,7 @@ const MetricsSection: React.FC = () => {
     <section
       id="metricas"
       className="relative py-8 md:py-12"
-      style={{ background: "#000" }}
+      style={{ background: "#0B0D14" }}
       ref={ref}
     >
       <div

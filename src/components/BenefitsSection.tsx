@@ -93,7 +93,7 @@ const BenefitsSection: React.FC = () => {
 
   return (
     <section id="servicios" className="relative section-spacing" style={{
-      background: '#000'
+      background: '#0B0D14'
     }}>
       <div className="relative z-20 top-tier-container h-full flex flex-col justify-start">
 

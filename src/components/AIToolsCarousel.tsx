@@ -82,7 +82,7 @@ const AIToolsCarousel: React.FC = () => {
     <section
       id="herramientas"
       className="relative section-spacing"
-      style={{ background: '#000' }}
+      style={{ background: '#0B0D14' }}
       aria-label={sectionLabel}
     >
       <div className="relative z-20 top-tier-container">

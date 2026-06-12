@@ -14,7 +14,7 @@ const Footer = lazy(() => import('@/components/Footer'));
 
 export default function HomePage() {
   return (
-    <>
+    <div style={{ backgroundColor: '#0B0D14' }}>
       <HeroSection />
       <AutomationSection />
       <PASSection />
@@ -54,6 +54,6 @@ export default function HomePage() {
         <CTASection />
         <Footer />
       </Suspense>
-    </>
+    </div>
   );
 }

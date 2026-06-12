@@ -13,7 +13,7 @@ const PASSection: React.FC = () => {
 
   return (
     <section id="pas" className="relative flex items-center section-spacing" style={{
-      background: '#000'
+      background: '#0B0D14'
     }}>
       <div className="relative z-20 w-full top-tier-container">
         <div className="flex flex-col items-center justify-center h-full">

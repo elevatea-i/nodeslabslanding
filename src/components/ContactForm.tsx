@@ -220,7 +220,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black relative">
+    <div className="min-h-screen relative" style={{ backgroundColor: '#0B0D14' }}>
       <div className="relative z-10">
         <button
           onClick={() => router.push('/')}

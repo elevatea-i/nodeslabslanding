@@ -116,16 +116,10 @@ const Navbar: React.FC = () => {
             exit={{ opacity: 0, y: prefersReducedMotion ? 0 : -20 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.3, ease: "easeOut" }}
             style={{
-              left: '50%',
-              x: '-50%',
-              width: '90%',
-              marginTop: '0px',
-              willChange: 'transform, backdrop-filter',
-              transform: 'translateZ(0)',
-              backfaceVisibility: 'hidden',
-              WebkitBackfaceVisibility: 'hidden',
-              scale: 1,
-              transformOrigin: 'top center'
+              maxWidth: '90%',
+              margin: '0 auto',
+              left: 0,
+              right: 0,
             }}
           >
             <motion.div
