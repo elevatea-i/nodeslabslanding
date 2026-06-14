@@ -29,6 +29,18 @@
       "static/chunks/_app-pages-browser_src_components_MetricsSection_tsx.js"
     ]
   },
+  "app/page.tsx -> @/components/ProcessSection": {
+    "id": "app/page.tsx -> @/components/ProcessSection",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_ProcessSection_tsx.js"
+    ]
+  },
+  "app/page.tsx -> @/components/TechnologyBenefitsSection": {
+    "id": "app/page.tsx -> @/components/TechnologyBenefitsSection",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_TechnologyBenefitsSection_tsx.js"
+    ]
+  },
   "src/components/BenefitsSection.tsx -> @/components/ServiceDetailModal": {
     "id": "src/components/BenefitsSection.tsx -> @/components/ServiceDetailModal",
     "files": [
@@ -45,6 +57,18 @@
     "id": "src/components/Navbar.tsx -> @/components/ContactForm",
     "files": [
       "static/chunks/_app-pages-browser_src_components_ContactForm_tsx-_aeb31.js"
+    ]
+  },
+  "src/components/Navbar.tsx -> @/components/WhyChooseUsModal": {
+    "id": "src/components/Navbar.tsx -> @/components/WhyChooseUsModal",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_WhyChooseUsModal_tsx.js"
+    ]
+  },
+  "src/components/WhyChooseUsModal.tsx -> @/components/ModalContent": {
+    "id": "src/components/WhyChooseUsModal.tsx -> @/components/ModalContent",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_ModalContent_tsx.js"
     ]
   }
 }

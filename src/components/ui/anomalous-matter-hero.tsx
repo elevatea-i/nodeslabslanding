@@ -3,6 +3,7 @@
 import React, { useRef, useEffect, useState, Suspense } from "react";
 import * as THREE from "three";
 import { motion, type Variants } from "framer-motion";
+import { useRouter } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 
 function GenerativeArtScene() {
@@ -195,6 +196,7 @@ const item: Variants = {
 
 export function AnomalousMatterHero() {
   const { t } = useLanguage();
+  const router = useRouter();
 
   return (
     <section
@@ -262,14 +264,15 @@ export function AnomalousMatterHero() {
           variants={item}
           className="flex flex-col sm:flex-row gap-3 mb-8"
         >
-          <a
-            href="/contact"
+          <button
+            onClick={() => router.push('/contact')}
             className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-colors duration-200"
             style={{
               borderRadius: "9999px",
               backgroundColor: "#FFFFFF",
               color: "#0B0D14",
-              textDecoration: "none",
+              border: "none",
+              cursor: "pointer",
             }}
             onMouseEnter={(e) =>
               ((e.currentTarget as HTMLElement).style.backgroundColor = "#F0F0F0")
@@ -279,7 +282,7 @@ export function AnomalousMatterHero() {
             }
           >
             {t('hero.labCta1')}
-          </a>
+          </button>
           <a
             href="/#metricas"
             onClick={(e) => { e.preventDefault(); document.getElementById('metricas')?.scrollIntoView({ behavior: 'smooth' }); }}
