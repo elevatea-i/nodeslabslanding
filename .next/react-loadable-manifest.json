@@ -1,4 +1,10 @@
 {
+  "app/aviso-privacidad/page.tsx -> @/components/PrivacyNotice": {
+    "id": "app/aviso-privacidad/page.tsx -> @/components/PrivacyNotice",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_PrivacyNotice_tsx.js"
+    ]
+  },
   "app/page.tsx -> @/components/AIToolsCarousel": {
     "id": "app/page.tsx -> @/components/AIToolsCarousel",
     "files": [
