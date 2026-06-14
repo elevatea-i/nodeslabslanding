@@ -205,7 +205,21 @@ const translations = {
     'thanks.message': 'Alguien del laboratorio te escribirá en las próximas 24 horas.',
     'thanks.redirect': 'Redirigiendo en',
     'thanks.redirect.seconds': 'segundos...',
-    'thanks.back': 'Volver al inicio'
+    'thanks.back': 'Volver al inicio',
+
+    // Nosotros Page
+    'nosotros.eyebrow1': 'Sobre Nosotros',
+    'nosotros.headline': 'Vimos cómo negocios dejaban ir oportunidades que nunca deberían perder. Por eso construimos NodesLabs.',
+    'nosotros.eyebrow2': '¿Qué creemos?',
+    'nosotros.p1': 'Leads que llegaban de noche y nadie contestaba, equipos repitiendo las mismas respuestas todos los días, negocios con buen producto que nadie encontraba al buscarlo en Google, o que necesitaban un CRM, MVP o una solución específica a la medida de lo que su operación requería, lo vimos repetirse una y otra vez.',
+    'nosotros.p2': 'Creemos que para crecer no necesitas más personas, necesitas mejores sistemas. Un agente puede atender, calificar y dar seguimiento con el mismo trato que tú le darías a tus clientes, a cualquier hora.',
+    'nosotros.p3': 'Por eso somos un laboratorio, cada solución la construimos para lo que tu negocio necesita específicamente. No hay un paquete que le damos a todos, no hay intermediarios. Solo trabajo directo con resultados que se miden.',
+    'nosotros.eyebrow3': '¿Cómo trabajamos?',
+    'nosotros.service1.desc': 'El agente que atiende, califica y da seguimiento con la voz de tu marca. Sin descanso.',
+    'nosotros.service2.desc': 'La presencia digital que convierte. Sitios y sistemas que trabajan mientras tú creces.',
+    'nosotros.service3.desc': 'El contenido que posiciona tu marca. Visual que compite sin el presupuesto de las grandes.',
+    'nosotros.cta.headline': '¿Trabajamos juntos?',
+    'nosotros.cta.button': 'Empecemos a construir →'
   },
   en: {
     // Navbar
@@ -401,7 +415,21 @@ const translations = {
     'thanks.message': 'Someone from the lab will reach out within the next 24 hours.',
     'thanks.redirect': 'Redirecting in',
     'thanks.redirect.seconds': 'seconds...',
-    'thanks.back': 'Back to home'
+    'thanks.back': 'Back to home',
+
+    // Nosotros Page
+    'nosotros.eyebrow1': 'About Us',
+    'nosotros.headline': 'We saw how businesses were letting go of opportunities they should have never lost. That\'s why we built NodesLabs.',
+    'nosotros.eyebrow2': 'What We Believe',
+    'nosotros.p1': 'Leads coming in at night with no one to answer. Teams repeating the same responses every day. Businesses with a great product that no one could find online, or that needed a CRM, an MVP, a solution built specifically for what their operation required. We saw it happen over and over.',
+    'nosotros.p2': 'We believe you don\'t need more people to grow. You need better systems. An agent can follow up with the same care you\'d give your best clients, at any hour, without ever getting tired.',
+    'nosotros.p3': 'That\'s why we are a laboratory. Every solution is built from scratch for what your business specifically needs. No standard packages. No middlemen. Just direct work with measurable results.',
+    'nosotros.eyebrow3': 'How We Work',
+    'nosotros.service1.desc': 'The agent that attends, qualifies and follows up in your brand\'s voice. Without rest.',
+    'nosotros.service2.desc': 'The presence that converts. Sites and systems that work while you grow.',
+    'nosotros.service3.desc': 'The content that positions your brand. Visuals that compete without the big budget.',
+    'nosotros.cta.headline': 'Shall we work together?',
+    'nosotros.cta.button': 'Let\'s start building →'
   }
 };
 

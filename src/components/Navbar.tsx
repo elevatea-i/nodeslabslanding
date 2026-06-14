@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
   const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
   const isDesktop = useMediaQuery('(min-width: 1024px)');
 
-  const shouldShowNavbar = pathname === '/';
+  const shouldShowNavbar = pathname === '/' || pathname === '/nosotros';
 
   const toggleLanguage = useCallback(() => {
     const newLang = language === 'es' ? 'en' : 'es';

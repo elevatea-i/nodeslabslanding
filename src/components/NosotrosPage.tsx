@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import { useLanguage } from '@/context/LanguageContext';
 
 const EASE = [0.21, 0.45, 0.32, 0.9] as const;
 
@@ -21,23 +22,15 @@ const eyebrowStyle: React.CSSProperties = {
   marginBottom: '24px',
 };
 
-const services = [
-  {
-    title: 'AI Agents',
-    desc: 'El agente que atiende, califica y da seguimiento con la voz de tu marca. Sin descanso.',
-  },
-  {
-    title: 'Productos Digitales',
-    desc: 'La presencia digital que convierte. Sitios y sistemas que trabajan mientras tú creces.',
-  },
-  {
-    title: 'Content & Media',
-    desc: 'El contenido que posiciona tu marca. Visual que compite sin el presupuesto de las grandes.',
-  },
-];
-
 export default function NosotrosPage() {
   const router = useRouter();
+  const { t } = useLanguage();
+
+  const services = [
+    { title: 'AI Agents', desc: t('nosotros.service1.desc') },
+    { title: 'Productos Digitales', desc: t('nosotros.service2.desc') },
+    { title: 'Content & Media', desc: t('nosotros.service3.desc') },
+  ];
 
   return (
     <div style={{ backgroundColor: '#0B0D14', minHeight: '100vh' }}>
@@ -52,7 +45,7 @@ export default function NosotrosPage() {
         {/* Section 1 — Opening */}
         <section style={{ paddingTop: '96px', paddingBottom: '96px' }}>
           <motion.p style={eyebrowStyle} {...fadeUp(0)}>
-            Sobre Nosotros
+            {t('nosotros.eyebrow1')}
           </motion.p>
           <motion.h1
             {...fadeUp(0.1)}
@@ -66,20 +59,20 @@ export default function NosotrosPage() {
               margin: 0,
             }}
           >
-            Vimos cómo negocios dejaban ir oportunidades que nunca deberían perder. Por eso construimos NodesLabs.
+            {t('nosotros.headline')}
           </motion.h1>
         </section>
 
         {/* Section 2 — Qué Creemos */}
         <section style={{ paddingTop: '96px', paddingBottom: '96px' }}>
           <motion.p style={eyebrowStyle} {...fadeUp(0)}>
-            ¿Qué creemos?
+            {t('nosotros.eyebrow2')}
           </motion.p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', maxWidth: '640px' }}>
             {[
-              'Leads que llegaban de noche y nadie contestaba, equipos repitiendo las mismas respuestas todos los días, negocios con buen producto que nadie encontraba al buscarlo en Google, o que necesitaban un CRM, MVP o una solución específica a la medida de lo que su operación requería, lo vimos repetirse una y otra vez.',
-              'Creemos que para crecer no necesitas más personas, necesitas mejores sistemas. Un agente puede atender, calificar y dar seguimiento con el mismo trato que tú le darías a tus clientes, a cualquier hora.',
-              'Por eso somos un laboratorio, cada solución la construimos para lo que tu negocio necesita específicamente. No hay un paquete que le damos a todos, no hay intermediarios. Solo trabajo directo con resultados que se miden.',
+              t('nosotros.p1'),
+              t('nosotros.p2'),
+              t('nosotros.p3'),
             ].map((text, i) => (
               <motion.p
                 key={i}
@@ -100,7 +93,7 @@ export default function NosotrosPage() {
         {/* Section 3 — Cómo Trabajamos */}
         <section style={{ paddingTop: '96px', paddingBottom: '96px' }}>
           <motion.p style={eyebrowStyle} {...fadeUp(0)}>
-            ¿Cómo trabajamos?
+            {t('nosotros.eyebrow3')}
           </motion.p>
           <div
             style={{
@@ -165,7 +158,7 @@ export default function NosotrosPage() {
               margin: 0,
             }}
           >
-            ¿Trabajamos juntos?
+            {t('nosotros.cta.headline')}
           </motion.h2>
           <motion.button
             {...fadeUp(0.1)}
@@ -188,7 +181,7 @@ export default function NosotrosPage() {
               (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#FFFFFF';
             }}
           >
-            Empecemos a construir →
+            {t('nosotros.cta.button')}
           </motion.button>
         </section>
       </div>
