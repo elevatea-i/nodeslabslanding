@@ -1,4 +1,10 @@
 {
+  "app/aviso-privacidad/page.tsx -> @/components/PrivacyNotice": {
+    "id": "app/aviso-privacidad/page.tsx -> @/components/PrivacyNotice",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_PrivacyNotice_tsx.js"
+    ]
+  },
   "app/contact/page.tsx -> @/components/ContactForm": {
     "id": "app/contact/page.tsx -> @/components/ContactForm",
     "files": [
