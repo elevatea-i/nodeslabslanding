@@ -1,21 +1,23 @@
 'use client';
 
 import React from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
 
 export const FooterSEOLinks: React.FC = () => {
   const { language } = useLanguage();
   const router = useRouter();
+  const pathname = usePathname();
 
   const handleNav = (to: string) => {
     if (to.startsWith('/#')) {
       const id = to.slice(2);
-      router.push('/');
-      setTimeout(() => {
+      if (pathname === '/') {
         const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100);
+        if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+      } else {
+        router.push(to);
+      }
     } else {
       router.push(to);
     }
