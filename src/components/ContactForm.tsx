@@ -222,32 +222,32 @@ const ContactForm: React.FC = () => {
   return (
     <div className="min-h-screen relative" style={{ backgroundColor: '#0B0D14' }}>
       <div className="relative z-10">
-        <button
-          onClick={() => router.push('/')}
-          className="absolute top-8 left-4 flex items-center gap-2 transition-all duration-200"
-          aria-label={t('contact.back')}
-          style={{
-            color: 'rgba(255,255,255,0.7)',
-            padding: '8px 16px',
-            border: '1px solid rgba(255,255,255,0.15)',
-            borderRadius: '8px',
-            background: 'transparent',
-            cursor: 'pointer',
-          }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.05)';
-            (e.currentTarget as HTMLButtonElement).style.color = '#FFFFFF';
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.background = 'transparent';
-            (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.7)';
-          }}
-        >
-          <ArrowLeft size={18} />
-          <span className="text-sm font-medium">{t('contact.back')}</span>
-        </button>
+        <div className="container mx-auto px-4 pt-8 pb-16 max-w-2xl">
+          <button
+            onClick={() => router.push('/')}
+            className="flex items-center gap-2 transition-all duration-200 mb-6"
+            aria-label={t('contact.back')}
+            style={{
+              color: 'rgba(255,255,255,0.7)',
+              padding: '8px 16px',
+              border: '1px solid rgba(255,255,255,0.15)',
+              borderRadius: '8px',
+              background: 'transparent',
+              cursor: 'pointer',
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.05)';
+              (e.currentTarget as HTMLButtonElement).style.color = '#FFFFFF';
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.background = 'transparent';
+              (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.7)';
+            }}
+          >
+            <ArrowLeft size={18} />
+            <span className="text-sm font-medium">{t('contact.back')}</span>
+          </button>
 
-        <div className="container mx-auto px-4 py-16 max-w-2xl">
           <div
             className="backdrop-blur-lg rounded-2xl p-8 shadow-xl border"
             style={{
