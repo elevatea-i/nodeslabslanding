@@ -33,7 +33,7 @@ export const FooterSEOLinks: React.FC = () => {
       ],
     },
     {
-      title: language === 'es' ? 'Compañía.' : 'Company.',
+      title: language === 'es' ? 'Compañía' : 'Company',
       links: [
         { to: '/nosotros', text: language === 'es' ? 'Nosotros.' : 'About Us.' },
         { to: '/contact', text: language === 'es' ? 'Contacto.' : 'Contact.' },
