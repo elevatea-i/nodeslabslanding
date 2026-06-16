@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
 
             <a
               href="mailto:axel@nodeslabs.com"
-              className="flex items-center gap-2 transition-colors duration-200 group"
+              className="flex items-center gap-2 transition-colors duration-200 group no-underline"
               style={{ color: 'rgba(255,255,255,0.4)' }}
               onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.9)')}
               onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.4)')}

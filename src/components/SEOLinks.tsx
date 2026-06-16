@@ -45,7 +45,7 @@ export const FooterSEOLinks: React.FC = () => {
                     e.preventDefault();
                     smoothScrollTo(link.to.slice(2));
                   } : undefined}
-                  className="text-sm transition-colors duration-200 text-left hover:text-white/90 p-0 cursor-pointer"
+                  className="text-sm transition-colors duration-200 text-left hover:text-white/90 p-0 cursor-pointer no-underline"
                   style={{ color: 'rgba(255,255,255,0.5)' }}
                   onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.9)')}
                   onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.5)')}
