@@ -91,6 +91,23 @@ export default function RootLayout({
             gtag('config', 'G-YWTMCCQ54H');
           `}
         </Script>
+        <Script id="voiceflow-widget" strategy="afterInteractive">
+          {`
+            (function(d, t) {
+              var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+              v.onload = function() {
+                window.voiceflow.chat.load({
+                  verify: { projectID: '6a1d0bb5495496cb314ca7fb' },
+                  url: 'https://general-runtime.voiceflow.com',
+                  voice: { url: 'https://runtime-api.voiceflow.com' }
+                });
+              };
+              v.src = 'https://cdn.voiceflow.com/widget-next/bundle.mjs';
+              v.type = 'text/javascript';
+              s.parentNode.insertBefore(v, s);
+            })(document, 'script');
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
