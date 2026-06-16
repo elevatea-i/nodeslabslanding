@@ -94,11 +94,29 @@ const Navbar: React.FC = () => {
     }
   };
 
-  const navItems = [
-    { href: "/#", text: language === 'es' ? 'Inicio' : 'Home' },
-    { href: "/#servicios", text: language === 'es' ? 'Soluciones' : 'Solutions' },
-    { href: "/nosotros", text: language === 'es' ? 'Nosotros' : 'About' },
+  type NavItem = { sectionId: string | null; route: string | null; text: string };
+  const navItems: NavItem[] = [
+    { sectionId: '', route: null, text: language === 'es' ? 'Inicio' : 'Home' },
+    { sectionId: 'servicios', route: null, text: language === 'es' ? 'Soluciones' : 'Solutions' },
+    { sectionId: null, route: '/nosotros', text: language === 'es' ? 'Nosotros' : 'About' },
   ];
+
+  const handleNavClick = useCallback((item: NavItem) => {
+    setIsMenuOpen(false);
+    if (item.route) {
+      router.push(item.route);
+    } else if (item.sectionId) {
+      if (pathname !== '/') {
+        router.push(`/#${item.sectionId}`);
+      } else {
+        const el = document.getElementById(item.sectionId);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      if (pathname !== '/') router.push('/');
+      else window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [pathname, router]);
 
   const langLabel = language === 'es'
     ? 'Cambiar idioma a inglés'
@@ -172,11 +190,11 @@ const Navbar: React.FC = () => {
                   {/* Desktop menu */}
                   <div className="hidden md:flex items-center space-x-6" role="list">
                     {navItems.map((item, index) => {
-                      const isCurrent = pathname === item.href;
+                      const isCurrent = item.route ? pathname === item.route : false;
                       return (
-                        <motion.a
+                        <motion.button
                           key={index}
-                          href={item.href}
+                          onClick={() => handleNavClick(item)}
                           role="listitem"
                           aria-current={isCurrent ? 'page' : undefined}
                           className="group relative px-5 py-3 rounded-xl font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
@@ -184,13 +202,12 @@ const Navbar: React.FC = () => {
                             color: 'rgba(255, 255, 255, 1)',
                             fontSize: '0.75rem',
                             fontWeight: isCurrent ? 700 : 500,
-                            textDecoration: 'none'
                           }}
                           whileHover={prefersReducedMotion ? {} : { y: -2, scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                         >
                           <span className="relative z-10">{item.text}</span>
-                        </motion.a>
+                        </motion.button>
                       );
                     })}
 
@@ -278,36 +295,21 @@ const Navbar: React.FC = () => {
                     className="relative px-5 pt-5 pb-5 space-y-3"
                   >
                     {navItems.map((item, index) => {
-                      const isCurrent = pathname === item.href;
+                      const isCurrent = item.route ? pathname === item.route : false;
                       return (
-                        <motion.a
+                        <motion.button
                           key={index}
-                          href={item.href}
+                          onClick={() => handleNavClick(item)}
                           aria-current={isCurrent ? 'page' : undefined}
-                          className="group relative block px-5 py-4 rounded-xl text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+                          className="group relative block px-5 py-4 rounded-xl text-sm font-medium w-full text-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
                           style={{
                             color: 'rgba(255, 255, 255, 1)',
                             fontWeight: isCurrent ? 700 : 500,
-                            textDecoration: 'none'
-                          }}
-                          onClick={(e) => {
-                            const hash = item.href.startsWith('/#') ? item.href.slice(1) : null;
-                            if (hash) {
-                              e.preventDefault();
-                              setIsMenuOpen(false);
-                              setTimeout(() => {
-                                const el = document.getElementById(hash.slice(1));
-                                if (el) el.scrollIntoView({ behavior: 'smooth' });
-                                else window.location.hash = hash;
-                              }, 300);
-                            } else {
-                              setIsMenuOpen(false);
-                            }
                           }}
                           variants={menuItemVariants}
                         >
                           <span className="relative z-10">{item.text}</span>
-                        </motion.a>
+                        </motion.button>
                       );
                     })}
 
