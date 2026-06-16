@@ -83,7 +83,7 @@ const MetricsSection: React.FC = () => {
   const metrics = language === "es"
     ? [
         { prefix: "+", value: 100, suffix: "", label: "leads calificados", sublabel: undefined },
-        { prefix: "", value: 500, suffix: "+", label: "ventas procesadas", sublabel: undefined },
+        { prefix: "+", value: 500, suffix: "", label: "ventas procesadas", sublabel: undefined },
         { prefix: "", value: 95, suffix: "%", label: "tasa de reservas", sublabel: "en negocios de citas" },
         { prefix: "", value: 4, suffix: " seg", label: "tiempo de respuesta", sublabel: undefined },
       ]
