@@ -4,11 +4,9 @@ import React, { useState } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { useLanguage } from '@/context/LanguageContext';
 
 const PrivacyNotice: React.FC = () => {
   const router = useRouter();
-  const { language } = useLanguage();
   const [backHover, setBackHover] = useState(false);
 
   return (

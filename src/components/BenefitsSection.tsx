@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { Bot, Code2, Clapperboard } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { BentoGrid, BentoCard } from '@/components/ui/bento-grid';
-import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { trackServiceModalOpen } from '@/lib/analytics';
 
 const ServiceDetailModal = lazy(() => import('@/components/ServiceDetailModal'));
@@ -14,7 +13,6 @@ const BenefitsSection: React.FC = () => {
   const { t, language } = useLanguage();
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState<{ title: string; benefits: string[] } | null>(null);
-  const isDesktop = useMediaQuery('(min-width: 1024px)');
 
   const servicesData = [
     {

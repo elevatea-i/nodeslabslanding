@@ -19,7 +19,6 @@ const Breadcrumbs: React.FC = () => {
 
   // Define breadcrumb mappings for all routes
   const getBreadcrumbs = (): BreadcrumbItem[] => {
-    const pathSegments = pathname.split('/').filter(Boolean);
     const breadcrumbs: BreadcrumbItem[] = [
       {
         label: t('nav.home'),

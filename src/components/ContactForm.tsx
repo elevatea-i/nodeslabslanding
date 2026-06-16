@@ -16,7 +16,6 @@ import {
   validateCompanyName,
   validateProblems,
   validateAdditionalInfo,
-  getFieldStrength,
   type ValidationResult
 } from '@/lib/formValidation';
 
@@ -41,8 +40,6 @@ const ContactForm: React.FC = () => {
     formState: { errors, isSubmitting },
     reset,
     watch,
-    setError,
-    clearErrors
   } = useForm<FormData>({
     mode: 'onChange',
     defaultValues: {
