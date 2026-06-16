@@ -107,7 +107,7 @@ export default function RootLayout({
                 '[class*="voiceflow-"],',
                 '[id*="voiceflow"],',
                 '[id*="vfrc"]',
-                '{ z-index: ' + VF_Z + ' !important; }'
+                '{ z-index: ' + VF_Z + ' !important; color-scheme: light !important; }'
               ].join(' ');
               document.head.appendChild(styleEl);
 
@@ -126,6 +126,7 @@ export default function RootLayout({
               function boost(el) {
                 try {
                   el.style.setProperty('z-index', VF_Z, 'important');
+                  el.style.setProperty('color-scheme', 'light', 'important');
                 } catch (e) {}
               }
 
