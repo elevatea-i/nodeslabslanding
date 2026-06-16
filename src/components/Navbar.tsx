@@ -12,6 +12,7 @@ import { smoothScrollTo } from '@/lib/utils';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
   const router = useRouter();
   const pathname = usePathname();
@@ -19,7 +20,18 @@ const Navbar: React.FC = () => {
   const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
   const isDesktop = useMediaQuery('(min-width: 1024px)');
 
-  const shouldShowNavbar = pathname === '/' || pathname === '/nosotros';
+  const shouldShowNavbar = (pathname === '/' || pathname === '/nosotros') && !isChatOpen;
+
+  useEffect(() => {
+    const onOpen = () => setIsChatOpen(true);
+    const onClose = () => setIsChatOpen(false);
+    window.addEventListener('vf:open', onOpen);
+    window.addEventListener('vf:close', onClose);
+    return () => {
+      window.removeEventListener('vf:open', onOpen);
+      window.removeEventListener('vf:close', onClose);
+    };
+  }, []);
 
   const toggleLanguage = useCallback(() => {
     const newLang = language === 'es' ? 'en' : 'es';

@@ -99,7 +99,11 @@ export default function RootLayout({
                 window.voiceflow.chat.load({
                   verify: { projectID: '6a1d0bb5495496cb314ca7fb' },
                   url: 'https://general-runtime.voiceflow.com',
-                  voice: { url: 'https://runtime-api.voiceflow.com' }
+                  voice: { url: 'https://runtime-api.voiceflow.com' },
+                  events: {
+                    open: function() { window.dispatchEvent(new CustomEvent('vf:open')); },
+                    close: function() { window.dispatchEvent(new CustomEvent('vf:close')); },
+                  },
                 });
               };
               v.src = 'https://cdn.voiceflow.com/widget-next/bundle.mjs';
