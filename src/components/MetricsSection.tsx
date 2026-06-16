@@ -89,7 +89,7 @@ const MetricsSection: React.FC = () => {
       ]
     : [
         { prefix: "+", value: 100, suffix: "", label: "qualified leads", sublabel: undefined },
-        { prefix: "", value: 500, suffix: "+", label: "sales processed", sublabel: undefined },
+        { prefix: "+", value: 500, suffix: "", label: "sales processed", sublabel: undefined },
         { prefix: "", value: 95, suffix: "%", label: "booking rate", sublabel: "for appointment businesses" },
         { prefix: "", value: 4, suffix: " sec", label: "response time", sublabel: undefined },
       ];
