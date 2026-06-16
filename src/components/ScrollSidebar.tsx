@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { usePathname } from 'next/navigation';
+import { smoothScrollTo } from '@/lib/utils';
 
 interface Section {
   id: string;
@@ -65,8 +66,7 @@ const ScrollSidebar: React.FC = () => {
   }, [isHomePage]);
 
   const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    smoothScrollTo(id);
   };
 
   if (!isHomePage) return null;

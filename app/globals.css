@@ -56,7 +56,7 @@
 /* Base typography styles with improved performance */
 @layer base {
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     height: 100%;

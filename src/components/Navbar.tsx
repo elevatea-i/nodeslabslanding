@@ -8,6 +8,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { throttle } from '@/lib/performance';
 import { trackCTAClick, trackLanguageSwitch } from '@/lib/analytics';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { smoothScrollTo } from '@/lib/utils';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -109,12 +110,11 @@ const Navbar: React.FC = () => {
       if (pathname !== '/') {
         router.push(`/#${item.sectionId}`);
       } else {
-        const el = document.getElementById(item.sectionId);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        smoothScrollTo(item.sectionId);
       }
     } else {
       if (pathname !== '/') router.push('/');
-      else window.scrollTo({ top: 0, behavior: 'smooth' });
+      else smoothScrollTo('inicio');
     }
   }, [pathname, router]);
 

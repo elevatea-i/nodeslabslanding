@@ -3,6 +3,7 @@
 import React from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
+import { smoothScrollTo } from '@/lib/utils';
 
 export const FooterSEOLinks: React.FC = () => {
   const { language } = useLanguage();
@@ -13,8 +14,7 @@ export const FooterSEOLinks: React.FC = () => {
     if (to.startsWith('/#')) {
       const id = to.slice(2);
       if (pathname === '/') {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+        smoothScrollTo(id);
       } else {
         router.push(to);
       }
