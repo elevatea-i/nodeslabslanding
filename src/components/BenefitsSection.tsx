@@ -65,8 +65,8 @@ const BenefitsSection: React.FC = () => {
       icon: Clapperboard,
       title: language === 'es' ? 'Content & Media.' : 'Content & Media.',
       description: language === 'es'
-        ? 'Imagen, video y presentaciones. Tu marca, premium sin equipo creativo.'
-        : 'Image, video and presentations. Premium brand, no creative team needed.',
+        ? 'Imagen, video y presentaciones. Tu marca premium sin un equipo tan grande.'
+        : 'Image, video and presentations. Your premium brand without a big team.',
       benefits: language === 'es' ? [
         'Contenido de marca listo en días, no semanas.',
         'Tu presencia, activa y consistente sin esfuerzo.',
