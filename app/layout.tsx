@@ -101,8 +101,20 @@ export default function RootLayout({
                   url: 'https://general-runtime.voiceflow.com',
                   voice: { url: 'https://runtime-api.voiceflow.com' },
                   events: {
-                    open: function() { window.dispatchEvent(new CustomEvent('vf:open')); },
-                    close: function() { window.dispatchEvent(new CustomEvent('vf:close')); },
+                    open: function() {
+                      window.dispatchEvent(new CustomEvent('vf:open'));
+                      if (!document.getElementById('vf-z-boost')) {
+                        var s = document.createElement('style');
+                        s.id = 'vf-z-boost';
+                        s.textContent = 'body > *:not(.fixed-navbar) { --vf-z: initial; } vf-widget, [class*="vf-chat"], [id*="voiceflow"], [class*="voiceflow"] { z-index: 999999 !important; position: fixed !important; }';
+                        document.head.appendChild(s);
+                      }
+                    },
+                    close: function() {
+                      window.dispatchEvent(new CustomEvent('vf:close'));
+                      var s = document.getElementById('vf-z-boost');
+                      if (s) s.parentNode.removeChild(s);
+                    },
                   },
                 });
               };

@@ -363,6 +363,10 @@ code, pre, .mono {
   -webkit-backface-visibility: hidden;
 }
 
+.fixed-navbar.vf-chat-active {
+  z-index: 1000 !important;
+}
+
 /* HERO SECTION — Linear/Vercel style */
 
 @keyframes orb-move-1 {

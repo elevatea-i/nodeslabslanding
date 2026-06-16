@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
   const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
   const isDesktop = useMediaQuery('(min-width: 1024px)');
 
-  const shouldShowNavbar = (pathname === '/' || pathname === '/nosotros') && !isChatOpen;
+  const shouldShowNavbar = pathname === '/' || pathname === '/nosotros';
 
   useEffect(() => {
     const onOpen = () => setIsChatOpen(true);
@@ -139,7 +139,7 @@ const Navbar: React.FC = () => {
       <AnimatePresence>
         {shouldShowNavbar && (
           <motion.nav
-            className="fixed-navbar"
+            className={`fixed-navbar${isChatOpen ? ' vf-chat-active' : ''}`}
             aria-label="Navegación principal"
             initial={{ opacity: 1, y: prefersReducedMotion ? 0 : -20 }}
             animate={{ opacity: 1, y: 0 }}
