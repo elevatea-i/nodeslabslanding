@@ -1,27 +1,14 @@
 'use client';
 
 import React from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
 import { smoothScrollTo } from '@/lib/utils';
 
 export const FooterSEOLinks: React.FC = () => {
   const { language } = useLanguage();
-  const router = useRouter();
   const pathname = usePathname();
-
-  const handleNav = (to: string) => {
-    if (to.startsWith('/#')) {
-      const id = to.slice(2);
-      if (pathname === '/') {
-        smoothScrollTo(id);
-      } else {
-        router.push(to);
-      }
-    } else {
-      router.push(to);
-    }
-  };
 
   const linkSections = [
     {
@@ -52,15 +39,19 @@ export const FooterSEOLinks: React.FC = () => {
           <ul className="space-y-2 list-none pl-0">
             {section.links.map((link, linkIndex) => (
               <li key={linkIndex}>
-                <button
-                  onClick={() => handleNav(link.to)}
-                  className="text-sm transition-colors duration-200 text-left hover:text-white/90 bg-transparent border-0 p-0 cursor-pointer"
+                <Link
+                  href={link.to}
+                  onClick={link.to.startsWith('/#') && pathname === '/' ? (e) => {
+                    e.preventDefault();
+                    smoothScrollTo(link.to.slice(2));
+                  } : undefined}
+                  className="text-sm transition-colors duration-200 text-left hover:text-white/90 p-0 cursor-pointer"
                   style={{ color: 'rgba(255,255,255,0.5)' }}
                   onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.9)')}
                   onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.5)')}
                 >
                   {link.text}
-                </button>
+                </Link>
               </li>
             ))}
           </ul>
