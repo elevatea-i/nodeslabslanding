@@ -93,35 +93,82 @@ export default function RootLayout({
         </Script>
         <Script id="voiceflow-widget" strategy="afterInteractive">
           {`
-            (function(d, t) {
-              var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            (function() {
+              var VF_Z = '2147483647';
+              var styleEl = document.createElement('style');
+              styleEl.id = 'vf-z-boost';
+              styleEl.textContent = [
+                'vf-widget,',
+                'voiceflow-chat,',
+                'vfrc-widget,',
+                'vfrc-chat,',
+                '[class*="vfrc-"],',
+                '[class*="vf-chat"],',
+                '[class*="voiceflow-"],',
+                '[id*="voiceflow"],',
+                '[id*="vfrc"]',
+                '{ z-index: ' + VF_Z + ' !important; }'
+              ].join(' ');
+              document.head.appendChild(styleEl);
+
+              function looksLikeVF(el) {
+                if (!el || el.nodeType !== 1) return false;
+                var tag = (el.tagName || '').toLowerCase();
+                if (tag.indexOf('voiceflow') !== -1 || tag.indexOf('vfrc') !== -1 || tag.indexOf('vf-') === 0) return true;
+                var id = (el.id || '').toLowerCase();
+                if (id.indexOf('voiceflow') !== -1 || id.indexOf('vfrc') !== -1) return true;
+                var cls = '';
+                try { cls = (typeof el.className === 'string' ? el.className : (el.className && el.className.baseVal) || '').toLowerCase(); } catch (e) {}
+                if (cls.indexOf('voiceflow') !== -1 || cls.indexOf('vfrc') !== -1 || cls.indexOf('vf-chat') !== -1) return true;
+                return false;
+              }
+
+              function boost(el) {
+                try {
+                  el.style.setProperty('z-index', VF_Z, 'important');
+                } catch (e) {}
+              }
+
+              function scan() {
+                var nodes = document.body ? document.body.children : [];
+                for (var i = 0; i < nodes.length; i++) {
+                  if (looksLikeVF(nodes[i])) boost(nodes[i]);
+                }
+              }
+
+              function startObserver() {
+                if (!document.body) return;
+                var mo = new MutationObserver(function(mutations) {
+                  for (var i = 0; i < mutations.length; i++) {
+                    var added = mutations[i].addedNodes;
+                    for (var j = 0; j < added.length; j++) {
+                      if (looksLikeVF(added[j])) boost(added[j]);
+                    }
+                  }
+                });
+                mo.observe(document.body, { childList: true, subtree: false });
+                scan();
+              }
+
+              if (document.body) startObserver();
+              else document.addEventListener('DOMContentLoaded', startObserver);
+
+              var v = document.createElement('script');
               v.onload = function() {
                 window.voiceflow.chat.load({
                   verify: { projectID: '6a1d0bb5495496cb314ca7fb' },
                   url: 'https://general-runtime.voiceflow.com',
                   voice: { url: 'https://runtime-api.voiceflow.com' },
-                  events: {
-                    open: function() {
-                      window.dispatchEvent(new CustomEvent('vf:open'));
-                      if (!document.getElementById('vf-z-boost')) {
-                        var s = document.createElement('style');
-                        s.id = 'vf-z-boost';
-                        s.textContent = 'body > *:not(.fixed-navbar) { --vf-z: initial; } vf-widget, [class*="vf-chat"], [id*="voiceflow"], [class*="voiceflow"] { z-index: 999999 !important; position: fixed !important; }';
-                        document.head.appendChild(s);
-                      }
-                    },
-                    close: function() {
-                      window.dispatchEvent(new CustomEvent('vf:close'));
-                      var s = document.getElementById('vf-z-boost');
-                      if (s) s.parentNode.removeChild(s);
-                    },
-                  },
                 });
+                setTimeout(scan, 500);
+                setTimeout(scan, 1500);
+                setTimeout(scan, 3000);
               };
               v.src = 'https://cdn.voiceflow.com/widget-next/bundle.mjs';
               v.type = 'text/javascript';
+              var s = document.getElementsByTagName('script')[0];
               s.parentNode.insertBefore(v, s);
-            })(document, 'script');
+            })();
           `}
         </Script>
         <script
