@@ -5,6 +5,7 @@ import * as THREE from "three";
 import { motion, type Variants } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
+import { trackCTAClick } from "@/lib/analytics";
 
 function GenerativeArtScene() {
   const mountRef = useRef<HTMLDivElement>(null);
@@ -265,7 +266,7 @@ export function AnomalousMatterHero() {
           className="flex flex-col sm:flex-row gap-3 mb-8"
         >
           <button
-            onClick={() => router.push('/contact')}
+            onClick={() => { trackCTAClick('hero'); router.push('/contact'); }}
             className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-colors duration-200"
             style={{
               borderRadius: "9999px",
