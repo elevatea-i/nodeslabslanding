@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ScrollSidebar from '@/components/ScrollSidebar';
 import ErrorBoundary from '@/components/ErrorBoundary';
+import AnalyticsGate from '@/components/AnalyticsGate';
 import './globals.css';
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -79,18 +80,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@300;400;500&display=swap"
           rel="stylesheet"
         />
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-YWTMCCQ54H"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-YWTMCCQ54H');
-          `}
-        </Script>
+        <AnalyticsGate />
         <Script id="voiceflow-widget" strategy="afterInteractive">
           {`
             (function() {
