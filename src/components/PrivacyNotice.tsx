@@ -94,7 +94,8 @@ const PrivacyNotice: React.FC = () => {
                       <li>Tus datos se almacenan de forma segura en una base de datos SQL. (infraestructura certificada)</li>
                       <li>Integraciones seguras con herramientas especializadas para gestión de contactos.</li>
                       <li>Implementamos medidas técnicas y administrativas para proteger tu información.</li>
-                      <li>No utilizamos cookies de seguimiento ni compartimos datos con terceros.</li>
+                      <li>Utilizamos cookies y herramientas de análisis para entender cómo se usa el sitio y mejorar el servicio. Puedes desactivar las cookies desde la configuración de tu navegador.</li>
+                      <li>No vendemos tu información personal a terceros. Compartimos datos únicamente con proveedores de servicio necesarios para operar, conforme a sus propias políticas de privacidad.</li>
                     </ul>
                   </div>
 
@@ -112,6 +113,9 @@ const PrivacyNotice: React.FC = () => {
                       <li>Cancelar tu registro.</li>
                       <li>Oponerte al tratamiento de tus datos en cualquier momento.</li>
                     </ul>
+                    <p className="mt-3 text-sm sm:text-base" style={{ color: 'rgba(255,255,255,0.65)' }}>
+                      Para ejercer cualquiera de estos derechos, contáctanos a través del formulario en nodeslabs.com/contact.
+                    </p>
                   </div>
                 </div>
 
@@ -220,7 +224,8 @@ const PrivacyNotice: React.FC = () => {
                       <li>Your data is securely stored in a SQL database. (certified infrastructure)</li>
                       <li>Secure integrations with specialized tools for contact management.</li>
                       <li>We implement technical and administrative measures to protect your information.</li>
-                      <li>We do not use tracking cookies or share data with third parties.</li>
+                      <li>We use cookies and analytics tools to understand how the site is used and improve our service. You can disable cookies through your browser settings.</li>
+                      <li>We do not sell your personal information to third parties. We only share data with service providers necessary to operate, in accordance with their own privacy policies.</li>
                     </ul>
                   </div>
 
@@ -238,6 +243,9 @@ const PrivacyNotice: React.FC = () => {
                       <li>Cancel your registration.</li>
                       <li>Object to the processing of your data at any time.</li>
                     </ul>
+                    <p className="mt-3 text-sm sm:text-base" style={{ color: 'rgba(255,255,255,0.65)' }}>
+                      To exercise any of these rights, contact us through the form at nodeslabs.com/contact.
+                    </p>
                   </div>
                 </div>
 
