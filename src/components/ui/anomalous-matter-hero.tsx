@@ -133,8 +133,11 @@ function GenerativeArtScene() {
           lightRef.current = pointLight;
           scene.add(pointLight);
 
-          let frameId: number;
-          const animate = (t: number) => {
+          let frameId: number | null = null;
+          let isInViewport = true;
+          let isTabVisible = true;
+
+          function animate(t: number) {
             if (!prefersReduced) {
               material.uniforms.time.value = t * 0.0003;
               mesh.rotation.y += 0.0005;
@@ -142,8 +145,45 @@ function GenerativeArtScene() {
             }
             renderer.render(scene, camera);
             frameId = requestAnimationFrame(animate);
-          };
+          }
+
+          function pauseLoop() {
+            if (frameId !== null) {
+              cancelAnimationFrame(frameId);
+              frameId = null;
+            }
+          }
+
+          function resumeLoop() {
+            if (frameId === null) {
+              frameId = requestAnimationFrame(animate);
+            }
+          }
+
           frameId = requestAnimationFrame(animate);
+
+          const observer = new IntersectionObserver(
+            ([entry]) => {
+              isInViewport = entry.isIntersecting;
+              if (isInViewport && isTabVisible) {
+                resumeLoop();
+              } else {
+                pauseLoop();
+              }
+            },
+            { threshold: 0 }
+          );
+          observer.observe(currentMount);
+
+          const handleVisibilityChange = () => {
+            isTabVisible = !document.hidden;
+            if (isTabVisible && isInViewport) {
+              resumeLoop();
+            } else {
+              pauseLoop();
+            }
+          };
+          document.addEventListener("visibilitychange", handleVisibilityChange);
 
           const handleResize = () => {
             if (!currentMount) return;
@@ -168,7 +208,9 @@ function GenerativeArtScene() {
           window.addEventListener("mousemove", handleMouseMove);
 
           cleanupFn = () => {
-            cancelAnimationFrame(frameId);
+            if (frameId !== null) cancelAnimationFrame(frameId);
+            observer.disconnect();
+            document.removeEventListener("visibilitychange", handleVisibilityChange);
             window.removeEventListener("resize", handleResize);
             window.removeEventListener("mousemove", handleMouseMove);
             if (currentMount.contains(renderer.domElement)) {
