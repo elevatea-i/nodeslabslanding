@@ -6,13 +6,11 @@ import { motion, type Variants } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import { trackCTAClick } from "@/lib/analytics";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 function GenerativeArtScene() {
   const mountRef = useRef<HTMLDivElement>(null);
   const lightRef = useRef<THREEType.PointLight | null>(null);
   const [hasError, setHasError] = useState(false);
-  const isMobile = !useMediaQuery("(min-width: 768px)");
 
   useEffect(() => {
     const currentMount = mountRef.current;
@@ -41,7 +39,7 @@ function GenerativeArtScene() {
 
           const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
           renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
-          renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1 : 2));
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
           currentMount.appendChild(renderer.domElement);
 
           const geometry = new THREE.IcosahedronGeometry(1.2, 64);
@@ -192,7 +190,7 @@ function GenerativeArtScene() {
       mounted = false;
       cleanupFn();
     };
-  }, [hasError, isMobile]);
+  }, [hasError]);
 
   if (hasError) return null;
 
