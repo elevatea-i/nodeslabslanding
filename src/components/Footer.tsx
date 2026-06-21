@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Mail } from 'lucide-react';
 import { FooterSEOLinks } from '@/components/SEOLinks';

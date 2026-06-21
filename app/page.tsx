@@ -1,16 +1,15 @@
-'use client';
-
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import HeroSection from '@/components/HeroSection';
 import AutomationSection from '@/components/AutomationSection';
 import PASSection from '@/components/PASSection';
 import { BentoCardSkeleton, ProcessStepSkeleton, CardSkeleton } from '@/components/SkeletonLoader';
 
-const BenefitsSection = lazy(() => import('@/components/BenefitsSection'));
-const MetricsSection = lazy(() => import('@/components/MetricsSection'));
-const AIToolsCarousel = lazy(() => import('@/components/AIToolsCarousel'));
-const CTASection = lazy(() => import('@/components/CTASection'));
-const Footer = lazy(() => import('@/components/Footer'));
+const BenefitsSection = dynamic(() => import('@/components/BenefitsSection'));
+const MetricsSection = dynamic(() => import('@/components/MetricsSection'));
+const AIToolsCarousel = dynamic(() => import('@/components/AIToolsCarousel'));
+const CTASection = dynamic(() => import('@/components/CTASection'));
+const Footer = dynamic(() => import('@/components/Footer'));
 
 export default function HomePage() {
   return (
