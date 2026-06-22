@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { Plus_Jakarta_Sans } from 'next/font/google';
+import { Plus_Jakarta_Sans, DM_Sans, DM_Mono } from 'next/font/google';
 import Providers from './providers';
 import Navbar from '@/components/Navbar';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -13,6 +13,20 @@ const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
   variable: '--font-jakarta',
+  display: 'swap',
+});
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500'],
+  variable: '--font-dm-sans',
+  display: 'swap',
+});
+
+const dmMono = DM_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-dm-mono',
   display: 'swap',
 });
 
@@ -74,12 +88,6 @@ export default function RootLayout({
   return (
     <html lang="es" style={{ backgroundColor: '#0B0D14' }}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@300;400;500&display=swap"
-          rel="stylesheet"
-        />
         <AnalyticsGate />
         <Script id="voiceflow-widget" strategy="afterInteractive">
           {`
@@ -183,7 +191,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${plusJakarta.variable} safari-fix`} style={{ backgroundColor: '#0B0D14', minHeight: '100vh' }}>
+      <body className={`${plusJakarta.variable} ${dmSans.variable} ${dmMono.variable} safari-fix`} style={{ backgroundColor: '#0B0D14', minHeight: '100vh' }}>
         <Providers>
           <Navbar />
           <Breadcrumbs />

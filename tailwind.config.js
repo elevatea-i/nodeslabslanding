@@ -56,8 +56,6 @@ module.exports = {
         sans:    ['var(--font-jakarta)', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
         heading: ['var(--font-jakarta)', 'sans-serif'],
         mono:    ['"DM Mono"', '"Fira Code"', 'ui-monospace', 'monospace'],
-        /* Legacy aliases kept for backwards compatibility */
-        syne: ['var(--font-jakarta)', 'system-ui', '-apple-system', 'sans-serif'],
       },
       screens: {
         'xs': '375px',
@@ -100,14 +98,14 @@ module.exports = {
         DEFAULT: {
           css: {
             color: '#FFFFFF',
-            fontFamily: 'DM Sans, system-ui, sans-serif',
+            fontFamily: 'var(--font-dm-sans), system-ui, sans-serif',
             fontSize: '1rem',
             lineHeight: '1.6',
             letterSpacing: '0',
             wordSpacing: '0.05em',
             h1: {
               color: '#FFFFFF',
-              fontFamily: 'Syne, system-ui, sans-serif',
+              fontFamily: 'var(--font-jakarta), system-ui, sans-serif',
               fontWeight: 700,
               fontSize: 'clamp(1.875rem, 4.5vw, 4rem)',
               lineHeight: '1.25',
@@ -116,7 +114,7 @@ module.exports = {
             },
             h2: {
               color: '#FFFFFF',
-              fontFamily: 'Syne, system-ui, sans-serif',
+              fontFamily: 'var(--font-jakarta), system-ui, sans-serif',
               fontWeight: 500,
               fontSize: 'clamp(1.25rem, 3vw, 2rem)',
               lineHeight: '1.6',
@@ -125,7 +123,7 @@ module.exports = {
             },
             h3: {
               color: '#FFFFFF',
-              fontFamily: 'Syne, system-ui, sans-serif',
+              fontFamily: 'var(--font-jakarta), system-ui, sans-serif',
               fontWeight: 500,
               fontSize: 'clamp(1.125rem, 2.5vw, 1.5rem)',
               lineHeight: '1.6',
@@ -134,7 +132,7 @@ module.exports = {
             },
             h4: {
               color: '#FFFFFF',
-              fontFamily: 'Syne, system-ui, sans-serif',
+              fontFamily: 'var(--font-jakarta), system-ui, sans-serif',
               fontWeight: 300,
               fontSize: 'clamp(1rem, 2vw, 1.25rem)',
               lineHeight: '1.6',
@@ -157,7 +155,7 @@ module.exports = {
             },
             strong: {
               color: '#FFFFFF',
-              fontFamily: 'Syne, system-ui, sans-serif',
+              fontFamily: 'var(--font-jakarta), system-ui, sans-serif',
               fontWeight: 600,
             },
             a: {
