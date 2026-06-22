@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
@@ -9,6 +9,41 @@ interface Tool {
   name: string;
   logo: string;
   category: string;
+}
+
+function LogoImage({
+  tool,
+  className,
+}: {
+  tool: Tool;
+  className?: string;
+}) {
+  const [failed, setFailed] = useState(false);
+
+  if (failed) {
+    return (
+      <div
+        className={`w-full h-full flex items-center justify-center ${className ?? ''}`}
+        style={{ backgroundColor: 'var(--steel)' }}
+        aria-hidden="true"
+      >
+        <span className="text-xl font-semibold text-white select-none">
+          {tool.name.charAt(0).toUpperCase()}
+        </span>
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={tool.logo}
+      alt={`${tool.name} — ${tool.category}`}
+      className={`w-full h-full object-cover ${className ?? ''}`}
+      loading="lazy"
+      decoding="async"
+      onError={() => setFailed(true)}
+    />
+  );
 }
 
 const AIToolsCarousel: React.FC = () => {
@@ -119,17 +154,7 @@ const AIToolsCarousel: React.FC = () => {
                   className="w-16 h-16 rounded-xl overflow-hidden bg-gray-900/50 border"
                   style={{ borderColor: 'var(--border-subtle)' }}
                 >
-                  <img
-                    src={tool.logo}
-                    alt={`${tool.name} — ${tool.category}`}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = `https://via.placeholder.com/80x80/1a1a1a/2C4C9C?text=${tool.name.charAt(0)}`;
-                    }}
-                  />
+                  <LogoImage tool={tool} />
                 </div>
                 <span className="text-xs font-medium text-white text-center leading-tight">
                   {tool.name}
@@ -173,17 +198,9 @@ const AIToolsCarousel: React.FC = () => {
                       '--tw-shadow-color': '#2C4C9C',
                     } as React.CSSProperties}
                   >
-                    <img
-                      src={tool.logo}
-                      alt={`${tool.name} — ${tool.category}`}
-                      className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110"
-                      loading="lazy"
-                      decoding="async"
-                      fetchPriority="low"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = `https://via.placeholder.com/80x80/1a1a1a/2C4C9C?text=${tool.name.charAt(0)}`;
-                      }}
+                    <LogoImage
+                      tool={tool}
+                      className="transition-all duration-300 group-hover:scale-110"
                     />
                     <div
                       className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"
