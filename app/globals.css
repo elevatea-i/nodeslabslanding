@@ -656,6 +656,36 @@ code, pre, .mono {
   gap: 24px 32px;
 }
 
+/* Hero entrance animation — CSS-only, no JS hydration needed.
+   Mirrors the former Framer Motion variants:
+   container: staggerChildren 0.2s
+   item: opacity 0 → 1, y 20px → 0, duration 0.6s, ease-out */
+.hero-rise {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: hero-rise 0.6s ease-out both;
+  animation-delay: calc(var(--i, 0) * 0.2s);
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
 /* Container system */
 .top-tier-container {
   max-width: 1200px;
