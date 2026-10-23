@@ -1,0 +1,20 @@
+# NodesLabs
+> Laboratorio de IA para empresas en México, LATAM y USA.
+## Español
+NodesLabs construye agentes de IA, automatización empresarial, productos digitales (sitios web y aplicaciones) y contenido con IA.
+Contacto: https://nodeslabs.com/contact
+Páginas:
+- https://nodeslabs.com/ (Inicio)
+- https://nodeslabs.com/nosotros (Nosotros)
+- https://nodeslabs.com/contact (Contacto)
+- https://nodeslabs.com/aviso-privacidad (Aviso de privacidad)
+Idiomas del sitio: español (principal) e inglés.
+## English
+NodesLabs builds AI agents, business automation, digital products (websites and applications) and AI-generated content.
+Contact: https://nodeslabs.com/contact
+Pages:
+- https://nodeslabs.com/ (Home)
+- https://nodeslabs.com/nosotros (About)
+- https://nodeslabs.com/contact (Contact)
+- https://nodeslabs.com/aviso-privacidad (Privacy notice)
+Site languages: Spanish (default) and English.
