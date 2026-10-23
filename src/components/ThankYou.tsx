@@ -33,7 +33,7 @@ const ThankYou: React.FC = () => {
       <div className="relative z-10 w-full">
         <button
           onClick={() => router.push('/')}
-          className="absolute top-8 left-4 flex items-center gap-2 transition-all duration-200"
+          className="absolute top-4 left-4 flex items-center gap-2 transition-all duration-200"
           style={{
             color: 'rgba(255,255,255,0.7)',
             padding: '8px 16px',
