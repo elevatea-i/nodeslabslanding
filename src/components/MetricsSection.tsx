@@ -3,25 +3,29 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
-function useCountUp(end: number, duration: number = 1500, start: boolean = false) {
-  const [count, setCount] = useState(0);
+function useCountUp(end: number, duration: number = 1500, start: boolean = false, reducedMotion: boolean = false) {
+  const [count, setCount] = useState(end);
 
   useEffect(() => {
-    if (!start) return;
+    if (!start || reducedMotion) return;
     let startTime: number | null = null;
+    let frame: number;
+    setCount(0);
 
     const step = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(Math.floor(eased * end));
-      if (progress < 1) requestAnimationFrame(step);
+      if (progress < 1) frame = requestAnimationFrame(step);
       else setCount(end);
     };
 
-    requestAnimationFrame(step);
-  }, [start, end, duration]);
+    frame = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frame);
+  }, [start, end, duration, reducedMotion]);
 
   return count;
 }
@@ -37,7 +41,8 @@ interface MetricProps {
 }
 
 function Metric({ prefix, value, suffix, label, sublabel, start, delay = 0 }: MetricProps) {
-  const count = useCountUp(value, 1500, start);
+  const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
+  const count = useCountUp(value, 1500, start, prefersReducedMotion);
 
   return (
     <motion.div
