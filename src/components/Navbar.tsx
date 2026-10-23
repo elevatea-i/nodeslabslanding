@@ -141,16 +141,7 @@ const Navbar: React.FC = () => {
                 borderRadius: '20px',
                 background: `rgba(0, 0, 0, 0.99)`,
                 border: '1px solid rgba(255, 255, 255, 0.5)',
-                boxShadow: `
-                  0 20px 80px rgba(0, 0, 0, 0.8),
-                  0 0 0 1px rgba(255, 255, 255, 0.35),
-                  inset 0 6px 0 rgba(255, 255, 255, 0.5),
-                  inset 0 -3px 0 rgba(255, 255, 255, 0.35),
-                  0 0 100px rgba(126, 182, 255, 0.4),
-                  0 0 200px rgba(156, 111, 255, 0.3),
-                  0 0 300px rgba(0, 0, 0, 0.7),
-                  inset 0 0 50px rgba(255, 255, 255, 0.1)
-                `
+                boxShadow: '0 0 0 1px rgba(255, 255, 255, 0.35), inset 0 6px 0 rgba(255, 255, 255, 0.5), inset 0 -3px 0 rgba(255, 255, 255, 0.35)'
               }}
             >
               <div className="relative max-w-6xl mx-auto px-6 lg:px-8 z-10">
