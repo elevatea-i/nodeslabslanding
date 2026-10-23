@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import { Plus_Jakarta_Sans, DM_Sans, DM_Mono } from 'next/font/google';
 import Providers from './providers';
 import Navbar from '@/components/Navbar';
@@ -89,87 +88,6 @@ export default function RootLayout({
     <html lang="es" style={{ backgroundColor: '#0B0D14' }}>
       <head>
         <AnalyticsGate />
-        <Script id="voiceflow-widget" strategy="afterInteractive">
-          {`
-            (function() {
-              var VF_Z = '2147483647';
-              var styleEl = document.createElement('style');
-              styleEl.id = 'vf-z-boost';
-              styleEl.textContent = [
-                'vf-widget,',
-                'voiceflow-chat,',
-                'vfrc-widget,',
-                'vfrc-chat,',
-                '[class*="vfrc-"],',
-                '[class*="vf-chat"],',
-                '[class*="voiceflow-"],',
-                '[id*="voiceflow"],',
-                '[id*="vfrc"]',
-                '{ z-index: ' + VF_Z + ' !important; color-scheme: light !important; }'
-              ].join(' ');
-              document.head.appendChild(styleEl);
-
-              function looksLikeVF(el) {
-                if (!el || el.nodeType !== 1) return false;
-                var tag = (el.tagName || '').toLowerCase();
-                if (tag.indexOf('voiceflow') !== -1 || tag.indexOf('vfrc') !== -1 || tag.indexOf('vf-') === 0) return true;
-                var id = (el.id || '').toLowerCase();
-                if (id.indexOf('voiceflow') !== -1 || id.indexOf('vfrc') !== -1) return true;
-                var cls = '';
-                try { cls = (typeof el.className === 'string' ? el.className : (el.className && el.className.baseVal) || '').toLowerCase(); } catch (e) {}
-                if (cls.indexOf('voiceflow') !== -1 || cls.indexOf('vfrc') !== -1 || cls.indexOf('vf-chat') !== -1) return true;
-                return false;
-              }
-
-              function boost(el) {
-                try {
-                  el.style.setProperty('z-index', VF_Z, 'important');
-                  el.style.setProperty('color-scheme', 'light', 'important');
-                } catch (e) {}
-              }
-
-              function scan() {
-                var nodes = document.body ? document.body.children : [];
-                for (var i = 0; i < nodes.length; i++) {
-                  if (looksLikeVF(nodes[i])) boost(nodes[i]);
-                }
-              }
-
-              function startObserver() {
-                if (!document.body) return;
-                var mo = new MutationObserver(function(mutations) {
-                  for (var i = 0; i < mutations.length; i++) {
-                    var added = mutations[i].addedNodes;
-                    for (var j = 0; j < added.length; j++) {
-                      if (looksLikeVF(added[j])) boost(added[j]);
-                    }
-                  }
-                });
-                mo.observe(document.body, { childList: true, subtree: false });
-                scan();
-              }
-
-              if (document.body) startObserver();
-              else document.addEventListener('DOMContentLoaded', startObserver);
-
-              var v = document.createElement('script');
-              v.onload = function() {
-                window.voiceflow.chat.load({
-                  verify: { projectID: '6a1d0bb5495496cb314ca7fb' },
-                  url: 'https://general-runtime.voiceflow.com',
-                  voice: { url: 'https://runtime-api.voiceflow.com' },
-                });
-                setTimeout(scan, 500);
-                setTimeout(scan, 1500);
-                setTimeout(scan, 3000);
-              };
-              v.src = 'https://cdn.voiceflow.com/widget-next/bundle.mjs';
-              v.type = 'text/javascript';
-              var s = document.getElementsByTagName('script')[0];
-              s.parentNode.insertBefore(v, s);
-            })();
-          `}
-        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
