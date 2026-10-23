@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Globe, Menu, X } from 'lucide-react';
-import { useRouter, usePathname } from 'next/navigation';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { throttle } from '@/lib/performance';
@@ -10,10 +11,13 @@ import { trackCTAClick, trackLanguageSwitch } from '@/lib/analytics';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { smoothScrollTo } from '@/lib/utils';
 
+const MotionLink = motion.create(Link);
+
+const listItemClass = 'm-0 leading-[inherit]';
+
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
-  const router = useRouter();
   const pathname = usePathname();
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
@@ -27,12 +31,10 @@ const Navbar: React.FC = () => {
     setLanguage(newLang);
   }, [language, setLanguage]);
 
-  const handleContactClick = useCallback((e: React.MouseEvent) => {
-    e.preventDefault();
+  const handleContactClick = useCallback(() => {
     trackCTAClick('navbar');
-    router.push('/contact');
     setIsMenuOpen(false);
-  }, [router]);
+  }, []);
 
   const handleContactHover = useCallback(() => {
     import('@/components/ContactForm').catch(() => {});
@@ -95,28 +97,21 @@ const Navbar: React.FC = () => {
     }
   };
 
-  type NavItem = { sectionId: string | null; route: string | null; text: string };
+  type NavItem = { href: string; scrollTarget: string | null; route: string | null; text: string };
   const navItems: NavItem[] = [
-    { sectionId: '', route: null, text: language === 'es' ? 'Inicio' : 'Home' },
-    { sectionId: 'servicios', route: null, text: language === 'es' ? 'Soluciones' : 'Solutions' },
-    { sectionId: null, route: '/nosotros', text: language === 'es' ? 'Nosotros' : 'About' },
+    { href: '/', scrollTarget: 'inicio', route: null, text: language === 'es' ? 'Inicio' : 'Home' },
+    { href: '/#servicios', scrollTarget: 'servicios', route: null, text: language === 'es' ? 'Soluciones' : 'Solutions' },
+    { href: '/nosotros', scrollTarget: null, route: '/nosotros', text: language === 'es' ? 'Nosotros' : 'About' },
   ];
 
-  const handleNavClick = useCallback((item: NavItem) => {
+  const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, item: NavItem) => {
     setIsMenuOpen(false);
-    if (item.route) {
-      router.push(item.route);
-    } else if (item.sectionId) {
-      if (pathname !== '/') {
-        router.push(`/#${item.sectionId}`);
-      } else {
-        smoothScrollTo(item.sectionId);
-      }
-    } else {
-      if (pathname !== '/') router.push('/');
-      else smoothScrollTo('inicio');
+    const isPlainClick = e.button === 0 && !e.ctrlKey && !e.metaKey && !e.shiftKey && !e.altKey;
+    if (item.scrollTarget && pathname === '/' && isPlainClick) {
+      e.preventDefault();
+      smoothScrollTo(item.scrollTarget);
     }
-  }, [pathname, router]);
+  }, [pathname]);
 
   const langLabel = language === 'es'
     ? 'Cambiar idioma a inglés'
@@ -188,33 +183,37 @@ const Navbar: React.FC = () => {
                   </div>
 
                   {/* Desktop menu */}
-                  <div className="hidden md:flex items-center space-x-6" role="list">
+                  <ul className="hidden md:flex items-center space-x-6 m-0 p-0 list-none">
                     {navItems.map((item, index) => {
                       const isCurrent = item.route ? pathname === item.route : false;
                       return (
-                        <motion.button
-                          key={index}
-                          onClick={() => handleNavClick(item)}
-                          role="listitem"
+                        <li key={index} className={listItemClass}>
+                        <MotionLink
+                          href={item.href}
+                          onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleNavClick(e, item)}
                           aria-current={isCurrent ? 'page' : undefined}
-                          className="group relative px-5 py-3 rounded-xl font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+                          className="inline-block group relative px-5 py-3 rounded-xl font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
                           style={{
                             color: 'rgba(255, 255, 255, 1)',
                             fontSize: '0.75rem',
                             fontWeight: isCurrent ? 700 : 500,
+                            textDecoration: 'none',
                           }}
                           whileHover={prefersReducedMotion ? {} : { y: -2, scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                         >
                           <span className="relative z-10">{item.text}</span>
-                        </motion.button>
+                        </MotionLink>
+                        </li>
                       );
                     })}
 
-                    <motion.button
+                    <li className={listItemClass}>
+                    <MotionLink
+                      href="/contact"
                       onClick={handleContactClick}
                       onMouseEnter={handleContactHover}
-                      className="group relative px-5 py-3 rounded-xl font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+                      className="inline-block group relative px-5 py-3 rounded-xl font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
                       style={{
                         color: 'rgba(255, 255, 255, 1)',
                         fontSize: '0.75rem',
@@ -225,8 +224,10 @@ const Navbar: React.FC = () => {
                       whileTap={{ scale: 0.98 }}
                     >
                       <span className="relative z-10">{language === 'es' ? 'Empecemos →' : "Let's start →"}</span>
-                    </motion.button>
+                    </MotionLink>
+                    </li>
 
+                    <li className={listItemClass}>
                     <motion.button
                       onClick={toggleLanguage}
                       className="group relative p-3 rounded-xl transition-all duration-300 flex items-center gap-2 liquid-glass-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
@@ -240,7 +241,8 @@ const Navbar: React.FC = () => {
                         {language === 'es' ? 'EN' : 'ES'}
                       </span>
                     </motion.button>
-                  </div>
+                    </li>
+                  </ul>
 
                   {/* Mobile menu button */}
                   <div className="md:hidden flex items-center">
@@ -292,28 +294,34 @@ const Navbar: React.FC = () => {
                 >
                   <nav
                     aria-label={language === 'es' ? 'Menú móvil' : 'Mobile menu'}
-                    className="relative px-5 pt-5 pb-5 space-y-3"
+                    className="relative px-5 pt-5 pb-5"
                   >
+                    <ul className="space-y-3 m-0 p-0 list-none">
                     {navItems.map((item, index) => {
                       const isCurrent = item.route ? pathname === item.route : false;
                       return (
-                        <motion.button
-                          key={index}
-                          onClick={() => handleNavClick(item)}
+                        <li key={index} className={listItemClass}>
+                        <MotionLink
+                          href={item.href}
+                          onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleNavClick(e, item)}
                           aria-current={isCurrent ? 'page' : undefined}
                           className="group relative block px-5 py-4 rounded-xl text-sm font-medium w-full text-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
                           style={{
                             color: 'rgba(255, 255, 255, 1)',
                             fontWeight: isCurrent ? 700 : 500,
+                            textDecoration: 'none',
                           }}
                           variants={menuItemVariants}
                         >
                           <span className="relative z-10">{item.text}</span>
-                        </motion.button>
+                        </MotionLink>
+                        </li>
                       );
                     })}
 
-                    <motion.button
+                    <li className={listItemClass}>
+                    <MotionLink
+                      href="/contact"
                       onClick={handleContactClick}
                       onMouseEnter={handleContactHover}
                       className="group relative block px-5 py-4 rounded-xl text-sm font-medium w-full text-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
@@ -321,8 +329,10 @@ const Navbar: React.FC = () => {
                       variants={menuItemVariants}
                     >
                       <span className="relative z-10">{language === 'es' ? 'Empecemos →' : "Let's start →"}</span>
-                    </motion.button>
+                    </MotionLink>
+                    </li>
 
+                    <li className={listItemClass}>
                     <motion.button
                       onClick={toggleLanguage}
                       className="group relative flex items-center px-5 py-4 rounded-xl text-sm font-medium w-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
@@ -333,6 +343,8 @@ const Navbar: React.FC = () => {
                       <Globe size={18} className="mr-3 relative z-10" aria-hidden="true" />
                       <span className="relative z-10">{t('nav.switchLang')}</span>
                     </motion.button>
+                    </li>
+                    </ul>
                   </nav>
                 </motion.div>
               )}
