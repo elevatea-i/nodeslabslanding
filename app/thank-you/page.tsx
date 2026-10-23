@@ -1,14 +1,21 @@
-'use client';
+import type { Metadata } from 'next';
+import ThankYouPageClient from '@/components/ThankYouPageClient';
 
-import React, { Suspense, lazy } from 'react';
-import LoadingSpinner from '@/components/LoadingSpinner';
-
-const ThankYou = lazy(() => import('@/components/ThankYou'));
+export const metadata: Metadata = {
+  title: 'Gracias — NodesLabs',
+  description: 'Recibimos tu mensaje. Gracias por escribir a NodesLabs.',
+  alternates: { canonical: '/thank-you' },
+  robots: { index: false, follow: true },
+  openGraph: {
+    title: 'Gracias — NodesLabs',
+    description: 'Recibimos tu mensaje. Gracias por escribir a NodesLabs.',
+    url: 'https://nodeslabs.com/thank-you',
+    siteName: 'NodesLabs',
+    locale: 'es_MX',
+    type: 'website',
+  },
+};
 
 export default function ThankYouPage() {
-  return (
-    <Suspense fallback={<LoadingSpinner />}>
-      <ThankYou />
-    </Suspense>
-  );
+  return <ThankYouPageClient />;
 }
