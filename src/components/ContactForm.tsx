@@ -165,6 +165,7 @@ const ContactForm: React.FC = () => {
       }
 
       if (!checkRateLimit('contact_form', 3, 300000)) {
+        toast.error(t('contact.rateLimitError'), { autoClose: 6000, toastId: 'contact-rate-limit' });
         return;
       }
 
@@ -178,10 +179,12 @@ const ContactForm: React.FC = () => {
       };
 
       if (!validateEmail(sanitizedData.email)) {
+        toast.error(t('contact.invalidEmail'));
         return;
       }
 
       if (!validateContent(sanitizedData.problems, 10, 1000)) {
+        toast.error(t('contact.invalidContent'));
         return;
       }
 
