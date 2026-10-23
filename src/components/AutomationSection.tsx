@@ -53,7 +53,7 @@ const AutomationSection: React.FC = () => {
   const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [activeService, setActiveService] = useState<ServiceId>('customerSupport');
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -86,7 +86,7 @@ const AutomationSection: React.FC = () => {
             className="text-xs font-semibold uppercase tracking-widest mb-3"
             style={{ color: 'var(--mist)', letterSpacing: '0.18em' }}
           >
-            AI Agents
+            {language === 'es' ? 'Agentes de IA' : 'AI Agents'}
           </p>
           <h2
             className="text-2xl sm:text-3xl md:text-4xl font-medium text-white mb-3 mx-auto"

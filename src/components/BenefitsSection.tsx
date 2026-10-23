@@ -17,7 +17,7 @@ const BenefitsSection: React.FC = () => {
   const servicesData = [
     {
       icon: Bot,
-      title: language === 'es' ? 'AI Agents.' : 'AI Agents.',
+      title: language === 'es' ? 'Agentes de IA.' : 'AI Agents.',
       description: language === 'es'
         ? 'Voz y chat que atienden, califican y convierten. Solos.'
         : 'Voice and chat that attend, qualify and convert. On their own.',
@@ -61,7 +61,7 @@ const BenefitsSection: React.FC = () => {
     },
     {
       icon: Clapperboard,
-      title: language === 'es' ? 'Content & Media.' : 'Content & Media.',
+      title: language === 'es' ? 'Contenido Visual.' : 'Visual Content.',
       description: language === 'es'
         ? 'Imagen, video y presentaciones. Tu marca premium sin un equipo tan grande.'
         : 'Image, video and presentations. Your premium brand without a big team.',

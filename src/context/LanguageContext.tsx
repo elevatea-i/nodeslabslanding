@@ -22,7 +22,6 @@ const translations = {
     // Hero Section
     'hero.title': 'Construimos sistemas de IA para que vendas más, gastes menos y crezcas más rápido',
     'hero.subtitle': 'Agentes IA que atienden, agendan y venden por tu negocio.',
-    'hero.pain': 'Sin IA en tu negocio: Más costos, menos clientes y tu competencia ganándote.',
     'hero.cta': 'Agenda tu sesión sin costo →',
     'hero.proof': '✓ Sin compromisos',
     'hero.proof.nocommit': 'Sin compromisos',
@@ -70,7 +69,6 @@ const translations = {
 
     // Why Choose Us Modal
     'whyChooseUs.title': '¿Por qué nuestros clientes eligen NodesLabs? | Tu negocio merece más.',
-    'whyChooseUs.intro': '¿Listo para escalar? Nosotros hacemos lo contrario a las agencias: menos promesas, más resultados. Funciona desde la primera semana.',
     'whyChooseUs.benefits': [
       {
         title: 'Automatiza, crece y olvídate del estrés.',
@@ -118,7 +116,6 @@ const translations = {
     'process.step3': 'Crece, atrae más clientes y escala sin límites.',
 
     // CTA Section
-    'cta.competition': 'Tu competencia',
     'cta.waiting': 'no espera...',
     'cta.button': 'Automatiza y Gana Más',
 
@@ -182,9 +179,9 @@ const translations = {
     'contact.fieldRemaining': 'campo más para enviar',
     'contact.fieldsRemaining': 'campos más para enviar',
     'contact.completeFields': 'Completa',
-    'contact.service.aiAgents': 'AI Agents',
+    'contact.service.aiAgents': 'Agentes de IA',
     'contact.service.productosDigitales': 'Productos Digitales',
-    'contact.service.contentMedia': 'Content & Media',
+    'contact.service.contentMedia': 'Contenido Visual',
 
     // Hero lab section
     'hero.labHeadline': 'El laboratorio de IA detrás de tu siguiente nivel.',
@@ -232,7 +229,6 @@ const translations = {
     // Hero Section
     'hero.title': 'We build AI systems so you sell more, spend less, and grow faster',
     'hero.subtitle': 'AI Agents that answer, book, and sell for your business — nonstop.',
-    'hero.pain': 'No AI in your business means higher costs, fewer clients, and your competition winning.',
     'hero.cta': 'Book your free session →',
     'hero.proof': '✓ No commitment',
     'hero.proof.nocommit': 'No commitment',
@@ -280,7 +276,6 @@ const translations = {
 
     // Why Choose Us Modal
     'whyChooseUs.title': 'Why do our clients choose NodesLabs? | Your business deserves more.',
-    'whyChooseUs.intro': 'Ready to scale? We do the opposite of agencies: less promises, more results. It works from the first week.',
     'whyChooseUs.benefits': [
       {
         title: 'Automate, grow and forget about stress.',
@@ -328,7 +323,6 @@ const translations = {
     'process.step3': 'Grow, attract more customers and scale without limits.',
 
     // CTA Section
-    'cta.competition': 'Competition',
     'cta.waiting': 'isn\'t waiting...',
     'cta.button': 'Automate & Gain More',
 
@@ -394,7 +388,7 @@ const translations = {
     'contact.completeFields': 'Complete',
     'contact.service.aiAgents': 'AI Agents',
     'contact.service.productosDigitales': 'Digital Products',
-    'contact.service.contentMedia': 'Content & Media',
+    'contact.service.contentMedia': 'Visual Content',
 
     // Hero lab section
     'hero.labHeadline': 'The AI lab behind your next level.',

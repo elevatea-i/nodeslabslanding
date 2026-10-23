@@ -30,8 +30,8 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'NodesLabs — Laboratorio de IA para tu negocio',
-  description: 'Construimos agentes de voz, productos digitales y contenido con IA para empresas en México y LATAM. Automatiza tu operación y escala sin contratar más personal.',
+  title: 'Agentes de IA para WhatsApp y voz en México | NodesLabs',
+  description: 'Chatbots y agentes de IA para WhatsApp y llamadas: atienden, califican y agendan por ti. Automatización y sitios web para empresas en México.',
   keywords: [
     'laboratorio de inteligencia artificial',
     'agentes de voz',
@@ -49,8 +49,8 @@ export const metadata: Metadata = {
   publisher: 'NodesLabs',
   metadataBase: new URL('https://nodeslabs.com'),
   openGraph: {
-    title: 'NodesLabs — Laboratorio de IA para tu negocio',
-    description: 'Agentes de voz, productos digitales y contenido con IA. Un laboratorio construido para escalar tu negocio sin escalar tu equipo.',
+    title: 'Agentes de IA para WhatsApp y voz en México | NodesLabs',
+    description: 'Chatbots y agentes de IA para WhatsApp y llamadas: atienden, califican y agendan por ti. Automatización y sitios web para empresas en México.',
     url: 'https://nodeslabs.com',
     siteName: 'NodesLabs',
     locale: 'es_MX',
@@ -58,8 +58,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NodesLabs — Laboratorio de IA',
-    description: 'Agentes de voz, productos digitales y contenido con IA para empresas en México y LATAM.',
+    title: 'NodesLabs — Agentes de IA para WhatsApp y voz',
+    description: 'Chatbots y agentes de IA para WhatsApp y llamadas: atienden, califican y agendan por ti. Automatización y sitios web para empresas en México.',
     creator: '@nodeslabs',
   },
   robots: {

@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import NosotrosPage from '@/components/NosotrosPage';
 
 export const metadata: Metadata = {
-  title: 'Nosotros — NodesLabs',
-  description: 'Conoce la filosofía detrás del laboratorio. Construimos sistemas de IA, productos digitales y contenido para empresas en México, LATAM y USA.',
+  title: 'Nosotros — Laboratorio de IA en México | NodesLabs',
+  description: 'Somos un laboratorio de IA: diseñamos, conectamos y probamos agentes, automatizaciones y productos digitales para empresas en México, LATAM y USA.',
   alternates: { canonical: '/nosotros' },
   openGraph: {
-    title: 'Nosotros — NodesLabs',
-    description: 'Conoce la filosofía detrás del laboratorio. Construimos sistemas de IA, productos digitales y contenido para empresas en México, LATAM y USA.',
+    title: 'Nosotros — Laboratorio de IA en México | NodesLabs',
+    description: 'Somos un laboratorio de IA: diseñamos, conectamos y probamos agentes, automatizaciones y productos digitales para empresas en México, LATAM y USA.',
     url: 'https://nodeslabs.com/nosotros',
     siteName: 'NodesLabs',
     locale: 'es_MX',

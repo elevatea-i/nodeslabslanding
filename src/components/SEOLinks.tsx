@@ -14,9 +14,9 @@ export const FooterSEOLinks: React.FC = () => {
     {
       title: language === 'es' ? 'Servicios' : 'Services',
       links: [
-        { to: '/#servicios', text: language === 'es' ? 'AI Agents.' : 'AI Agents.' },
+        { to: '/#servicios', text: language === 'es' ? 'Agentes de IA.' : 'AI Agents.' },
         { to: '/#servicios', text: language === 'es' ? 'Productos Digitales.' : 'Digital Products.' },
-        { to: '/#servicios', text: language === 'es' ? 'Content & Media.' : 'Content & Media.' },
+        { to: '/#servicios', text: language === 'es' ? 'Contenido Visual.' : 'Visual Content.' },
       ],
     },
     {

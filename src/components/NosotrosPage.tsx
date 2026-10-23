@@ -25,12 +25,12 @@ const eyebrowStyle: React.CSSProperties = {
 };
 
 export default function NosotrosPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const services = [
-    { title: 'AI Agents', desc: t('nosotros.service1.desc') },
-    { title: 'Productos Digitales', desc: t('nosotros.service2.desc') },
-    { title: 'Content & Media', desc: t('nosotros.service3.desc') },
+    { title: language === 'es' ? 'Agentes de IA' : 'AI Agents', desc: t('nosotros.service1.desc') },
+    { title: language === 'es' ? 'Productos Digitales' : 'Digital Products', desc: t('nosotros.service2.desc') },
+    { title: language === 'es' ? 'Contenido Visual' : 'Visual Content', desc: t('nosotros.service3.desc') },
   ];
 
   return (
