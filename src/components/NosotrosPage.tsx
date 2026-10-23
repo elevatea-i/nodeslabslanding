@@ -1,10 +1,12 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 
 const EASE = [0.21, 0.45, 0.32, 0.9] as const;
+
+const MotionLink = motion.create(Link);
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
@@ -23,7 +25,6 @@ const eyebrowStyle: React.CSSProperties = {
 };
 
 export default function NosotrosPage() {
-  const router = useRouter();
   const { t } = useLanguage();
 
   const services = [
@@ -160,9 +161,9 @@ export default function NosotrosPage() {
           >
             {t('nosotros.cta.headline')}
           </motion.h2>
-          <motion.button
+          <MotionLink
+            href="/contact"
             {...fadeUp(0.1)}
-            onClick={() => router.push('/contact')}
             style={{
               backgroundColor: '#FFFFFF',
               color: '#0B0D14',
@@ -173,16 +174,18 @@ export default function NosotrosPage() {
               border: 'none',
               cursor: 'pointer',
               transition: 'background-color 200ms ease',
+              textDecoration: 'none',
+              display: 'inline-block',
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#E4EDF4';
+              (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#E4EDF4';
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#FFFFFF';
+              (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#FFFFFF';
             }}
           >
             {t('nosotros.cta.button')}
-          </motion.button>
+          </MotionLink>
         </section>
       </div>
     </div>

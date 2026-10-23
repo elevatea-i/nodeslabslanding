@@ -39,7 +39,7 @@ export default function HomeBelowFold() {
         </div>
       }
     >
-      <div id="servicios">
+      <div>
         <BenefitsSection />
       </div>
       <MetricsSection />

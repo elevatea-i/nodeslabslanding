@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
               NodesLabs
             </h2>
 
-            <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>
+            <p className="text-sm leading-relaxed max-w-xs" style={{ color: '#878EAE' }}>
               {language === 'es'
                 ? 'El laboratorio de IA para tu negocio.'
                 : 'The AI lab for your business.'}
@@ -28,9 +28,9 @@ const Footer: React.FC = () => {
             <a
               href="mailto:axel@nodeslabs.com"
               className="flex items-center gap-2 transition-colors duration-200 group no-underline"
-              style={{ color: 'rgba(255,255,255,0.4)' }}
-              onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.9)')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.4)')}
+              style={{ color: '#878EAE' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#E4EDF4')}
+              onMouseLeave={e => (e.currentTarget.style.color = '#878EAE')}
               aria-label="Enviar correo a axel@nodeslabs.com"
             >
               <Mail size={16} className="group-hover:scale-110 transition-transform duration-200" />
@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
           className="pt-8 mt-8"
           style={{ borderTop: '1px solid rgba(45,68,96,0.4)' }}
         >
-          <p className="text-xs" style={{ color: 'rgba(255,255,255,0.25)' }}>
+          <p className="text-xs" style={{ color: '#6E89A8' }}>
             © {currentYear} NodesLabs.{' '}
             {language === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}
           </p>

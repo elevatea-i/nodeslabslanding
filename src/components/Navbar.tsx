@@ -140,8 +140,6 @@ const Navbar: React.FC = () => {
               style={{
                 borderRadius: '20px',
                 background: `rgba(0, 0, 0, 0.99)`,
-                backdropFilter: 'blur(40px) saturate(180%) brightness(115%)',
-                WebkitBackdropFilter: 'blur(40px) saturate(180%) brightness(115%)',
                 border: '1px solid rgba(255, 255, 255, 0.5)',
                 boxShadow: `
                   0 20px 80px rgba(0, 0, 0, 0.8),

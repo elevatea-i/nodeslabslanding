@@ -1,17 +1,15 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { trackCTAClick } from "@/lib/analytics";
 
 export function HeroSection() {
   const { t } = useLanguage();
-  const router = useRouter();
 
   return (
     <section
       id="inicio"
-      role="banner"
       className="relative w-full min-h-screen overflow-hidden"
       style={{ backgroundColor: "#0B0D14" }}
     >
@@ -54,8 +52,9 @@ export function HeroSection() {
           className="hero-rise flex flex-col sm:flex-row gap-3 mb-8"
           style={{ "--i": 3 } as React.CSSProperties}
         >
-          <button
-            onClick={() => { trackCTAClick('hero'); router.push('/contact'); }}
+          <Link
+            href="/contact"
+            onClick={() => trackCTAClick('hero')}
             className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-colors duration-200"
             style={{
               borderRadius: "9999px",
@@ -63,6 +62,7 @@ export function HeroSection() {
               color: "#0B0D14",
               border: "none",
               cursor: "pointer",
+              textDecoration: "none",
             }}
             onMouseEnter={(e) =>
               ((e.currentTarget as HTMLElement).style.backgroundColor = "#F0F0F0")
@@ -72,7 +72,7 @@ export function HeroSection() {
             }
           >
             {t('hero.labCta1')}
-          </button>
+          </Link>
           <a
             href="/#metricas"
             onClick={(e) => { e.preventDefault(); document.getElementById('metricas')?.scrollIntoView({ behavior: 'smooth' }); }}

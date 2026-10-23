@@ -114,11 +114,11 @@ export default function RootLayout({
           <Navbar />
           <Breadcrumbs />
           <div className="min-h-screen text-white relative main-content flex" style={{ backgroundColor: '#0B0D14' }}>
-            <div className="flex-1 min-w-0">
+            <main className="flex-1 min-w-0">
               <ErrorBoundary>
                 {children}
               </ErrorBoundary>
-            </div>
+            </main>
             <ScrollSidebar />
           </div>
         </Providers>

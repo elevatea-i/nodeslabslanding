@@ -3,13 +3,14 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { trackCTAClick } from '@/lib/analytics';
 import { BorderBeam } from '@/components/ui/border-beam';
 
+const MotionLink = motion.create(Link);
+
 const CTASection: React.FC = () => {
-  const router = useRouter();
   const { language } = useLanguage();
   const prefetchFiredRef = useRef(false);
 
@@ -31,11 +32,6 @@ const CTASection: React.FC = () => {
 
     return () => clearTimeout(timer);
   }, []);
-
-  const handleContactClick = () => {
-    trackCTAClick('final');
-    router.push('/contact');
-  };
 
   const handleMouseEnter = () => {
     if (prefetchFiredRef.current) return;
@@ -148,8 +144,9 @@ const CTASection: React.FC = () => {
             </motion.p>
 
             {/* CTA Button */}
-            <motion.button
-              onClick={handleContactClick}
+            <MotionLink
+              href="/contact"
+              onClick={() => trackCTAClick('final')}
               onMouseEnter={handleMouseEnter}
               className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300"
               style={{
@@ -159,7 +156,8 @@ const CTASection: React.FC = () => {
                 boxShadow: `
                   0 4px 16px rgba(173, 201, 224, 0.2),
                   inset 0 1px 0 rgba(255, 255, 255, 0.3)
-                `
+                `,
+                textDecoration: 'none'
               }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -183,7 +181,7 @@ const CTASection: React.FC = () => {
                 size={20}
                 className="transition-transform duration-300 group-hover:translate-x-1"
               />
-            </motion.button>
+            </MotionLink>
 
             {/* Small disclaimer text */}
             <motion.p

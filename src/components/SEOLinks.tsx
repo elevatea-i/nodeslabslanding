@@ -33,9 +33,9 @@ export const FooterSEOLinks: React.FC = () => {
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
       {linkSections.map((section, index) => (
         <div key={index}>
-          <h4 className="font-semibold mb-4 text-base" style={{ color: '#E4EDF4' }}>
+          <h3 className="font-semibold mb-4 text-base" style={{ color: '#E4EDF4', letterSpacing: '-0.01em' }}>
             {section.title}
-          </h4>
+          </h3>
           <ul className="space-y-2 list-none pl-0">
             {section.links.map((link, linkIndex) => (
               <li key={linkIndex}>
