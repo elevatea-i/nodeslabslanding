@@ -157,7 +157,7 @@ export default function NichePage({ niche }: { niche: Niche }) {
 
         <section style={sectionStyle}>
           <motion.p style={eyebrowStyle} {...fadeUp(0)}>
-            {isEs ? '¿Qué hace el agente?' : 'What the agent does''}
+            {isEs ? '¿Qué hace el agente?' : 'What the agent does?'}
           </motion.p>
           <motion.h2 style={h2Style} {...fadeUp(0.1)}>
             {niche.capabilitiesTitle[language]}
