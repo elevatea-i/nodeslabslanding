@@ -19,7 +19,7 @@ export const faqItems: FaqItem[] = [
       en: `What's the difference between a button-based chatbot and an AI agent?`,
     },
     a: {
-      es: `El chatbot de botones sigue un menú fijo ("presiona 1"). El agente de IA entiende lo que el cliente escribe o dice con sus propias palabras en lenguaje natural y conversa de forma natural. Rsuelve dudas, califica y agenda sin menús.`,
+      es: `El chatbot de botones sigue un menú fijo ("presiona 1"). El agente de IA entiende lo que el cliente escribe o dice con sus propias palabras en lenguaje natural y conversa de forma natural. Resuelve dudas, califica y agenda sin menús.`,
       en: `A button-based chatbot follows a fixed menu ("press 1"). An AI agent understands what the customer writes or says in their own words and talks naturally. It answers questions, qualifies leads and books appointments without menus.`,
     },
   },
