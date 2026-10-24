@@ -117,8 +117,16 @@ export default function NichePage({ niche }: { niche: Niche }) {
             </Link>
             <a
               href="#como-funciona"
-              className="inline-flex items-center min-h-[44px] hover:underline"
-              style={{ color: '#ADC9E0', fontSize: '15px' }}
+              className="inline-flex items-center min-h-[44px] no-underline transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ADC9E0]/60"
+              onClick={(event) => {
+                event.preventDefault();
+                document.getElementById('como-funciona')?.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start',
+                });
+                window.history.replaceState(null, '', '#como-funciona');
+              }}
+              style={{ color: '#ADC9E0', fontSize: '15px', textDecoration: 'none' }}
             >
               {isEs ? 'Ver cómo funciona' : 'See how it works'}
             </a>
