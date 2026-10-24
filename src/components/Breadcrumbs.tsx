@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { ChevronRight, Home } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+import { niches } from '@/data/niches';
 
 interface BreadcrumbItem {
   label: string;
@@ -54,6 +55,9 @@ const Breadcrumbs: React.FC = () => {
         isActive: true
       });
     }
+
+    const niche = Object.values(niches).find((n) => n.path === pathname);
+    if (niche) breadcrumbs.push({ label: niche.navLabel[language], path: niche.path, isActive: true });
 
     return breadcrumbs;
   };

@@ -4,9 +4,9 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-import { faqItems } from '@/data/faq';
+import { faqItems, type FaqItem } from '@/data/faq';
 
-export default function FAQSection() {
+export default function FAQSection({ items = faqItems }: { items?: FaqItem[] }) {
   const { language } = useLanguage();
   const [openId, setOpenId] = useState<string | null>(null);
   const isEs = language === 'es';
@@ -55,7 +55,7 @@ export default function FAQSection() {
 
           <div className="md:col-span-3">
             <div style={{ borderTop: '1px solid rgba(45,68,96,0.6)' }}>
-              {faqItems.map((item) => {
+              {items.map((item) => {
                 const open = openId === item.id;
                 return (
                   <div key={item.id} style={{ borderBottom: '1px solid rgba(45,68,96,0.6)' }}>

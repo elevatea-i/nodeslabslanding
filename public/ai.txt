@@ -7,6 +7,7 @@ Páginas:
 - https://nodeslabs.com/ (Inicio)
 - https://nodeslabs.com/nosotros (Nosotros)
 - https://nodeslabs.com/contact (Contacto)
+- https://nodeslabs.com/medicos (Médicos y clínicas)
 - https://nodeslabs.com/aviso-privacidad (Aviso de privacidad)
 Idiomas del sitio: español (principal) e inglés.
 ## English
@@ -16,5 +17,6 @@ Pages:
 - https://nodeslabs.com/ (Home)
 - https://nodeslabs.com/nosotros (About)
 - https://nodeslabs.com/contact (Contact)
+- https://nodeslabs.com/medicos (Doctors and clinics)
 - https://nodeslabs.com/aviso-privacidad (Privacy notice)
 Site languages: Spanish (default) and English.

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
 import { smoothScrollTo } from '@/lib/utils';
+import { niches } from '@/data/niches';
 
 export const FooterSEOLinks: React.FC = () => {
   const { language } = useLanguage();
@@ -20,6 +21,10 @@ export const FooterSEOLinks: React.FC = () => {
       ],
     },
     {
+      title: language === 'es' ? 'Industrias' : 'Industries',
+      links: Object.values(niches).map((n) => ({ to: n.path, text: `${n.navLabel[language]}.` })),
+    },
+    {
       title: language === 'es' ? 'Compañía' : 'Company',
       links: [
         { to: '/nosotros', text: language === 'es' ? 'Nosotros.' : 'About Us.' },
@@ -30,7 +35,7 @@ export const FooterSEOLinks: React.FC = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8">
       {linkSections.map((section, index) => (
         <div key={index}>
           <h3 className="font-semibold mb-4 text-base" style={{ color: '#E4EDF4', letterSpacing: '-0.01em' }}>
