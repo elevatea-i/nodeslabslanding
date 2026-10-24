@@ -19,8 +19,8 @@ export const faqItems: FaqItem[] = [
       en: `What's the difference between a button-based chatbot and an AI agent?`,
     },
     a: {
-      es: `El chatbot de botones sigue un menú fijo ("presiona 1"). El agente de IA entiende lo que el cliente escribe o dice con sus propias palabras y conversa de forma natural: resuelve dudas, califica y agenda sin menús.`,
-      en: `A button-based chatbot follows a fixed menu ("press 1"). An AI agent understands what the customer writes or says in their own words and talks naturally: it answers questions, qualifies leads and books appointments without menus.`,
+      es: `El chatbot de botones sigue un menú fijo ("presiona 1"). El agente de IA entiende lo que el cliente escribe o dice con sus propias palabras en lenguaje natural y conversa de forma natural. Rsuelve dudas, califica y agenda sin menús.`,
+      en: `A button-based chatbot follows a fixed menu ("press 1"). An AI agent understands what the customer writes or says in their own words and talks naturally. It answers questions, qualifies leads and books appointments without menus.`,
     },
   },
   {
@@ -52,8 +52,8 @@ export const faqItems: FaqItem[] = [
       en: 'How do I keep the agent from making things up or giving wrong answers?',
     },
     a: {
-      es: 'El agente responde solo desde una base de conocimientos que tú apruebas: servicios, precios, horarios y reglas. Si la respuesta no está ahí, no improvisa: pasa la conversación a una persona de tu equipo con un resumen, o abre un ticket de seguimiento.',
-      en: `The agent answers only from a knowledge base that you approve: services, prices, hours and rules. If the answer isn't there, it doesn't improvise: it hands the conversation to someone on your team with a summary, or opens a follow-up ticket.`,
+      es: 'El agente responde solo desde una base de conocimientos que tú apruebas: Servicios, precios, horarios y reglas. Si la respuesta no está ahí, no improvisa: pasa la conversación a una persona de tu equipo con un resumen, o abre un ticket de seguimiento.',
+      en: `The agent answers only from a knowledge base that you approve: Services, prices, hours and rules. If the answer isn't there, it doesn't improvise: it hands the conversation to someone on your team with a summary, or opens a follow-up ticket.`,
     },
   },
   {
@@ -74,8 +74,8 @@ export const faqItems: FaqItem[] = [
       en: 'What can I automate, and which tools does it connect to?',
     },
     a: {
-      es: 'Lo repetitivo entre tus herramientas: captura de leads, seguimiento, confirmación de citas, recordatorios y reportes. Nos conectamos con Google Calendar, Cal.com, HubSpot, Airtable, Gmail y, con Make o n8n, la mayoría de las apps con conexión.',
-      en: 'The repetitive work between your tools: lead capture, follow-up, appointment confirmations, reminders and reports. We connect with Google Calendar, Cal.com, HubSpot, Airtable, Gmail and, through Make or n8n, most apps that offer a connection.',
+      es: 'Lo repetitivo entre tus herramientas: Captura de leads, seguimiento, confirmación de citas, recordatorios y reportes. Nos conectamos con Google Calendar, Cal.com, HubSpot, Airtable, Gmail y, con Make o n8n, la mayoría de las apps con conexión.',
+      en: 'The repetitive work between your tools: Lead capture, follow-up, appointment confirmations, reminders and reports. We connect with Google Calendar, Cal.com, HubSpot, Airtable, Gmail and, through Make or n8n, most apps that offer a connection.',
     },
   },
   {
