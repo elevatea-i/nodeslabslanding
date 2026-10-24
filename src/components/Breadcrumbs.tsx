@@ -4,7 +4,6 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronRight, Home } from 'lucide-react';
-import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { niches } from '@/data/niches';
 
@@ -68,12 +67,12 @@ const Breadcrumbs: React.FC = () => {
   if (hiddenRoutes.includes(pathname)) return null;
 
   return (
-    <nav 
+    <nav
       aria-label="Breadcrumb navigation"
-      className="bg-gray-900/50 backdrop-blur-sm border-b border-gray-800/50"
+      style={{ backgroundColor: '#0B0D14', borderBottom: '1px solid rgba(45,68,96,0.35)' }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        <ol className="flex items-center space-x-2 text-sm">
+      <div className="mx-auto max-w-6xl px-6 py-3 sm:px-8">
+        <ol className="flex min-h-[44px] items-center gap-2 text-sm">
           {breadcrumbs.map((item, index) => (
             <li key={item.path} className="flex items-center">
               {index > 0 && (
@@ -85,20 +84,26 @@ const Breadcrumbs: React.FC = () => {
               )}
               
               {item.isActive ? (
-                <span 
-                  className="text-[#ADC9FF] font-medium"
+                <span
+                  className="flex items-center font-medium"
                   aria-current="page"
+                  style={{ color: '#ADC9E0', textDecoration: 'none' }}
                 >
-                  {index === 0 && <Home size={16} className="inline mr-1" aria-hidden="true" />}
+                  {index === 0 && <Home size={15} strokeWidth={1.8} className="mr-2" aria-hidden="true" />}
                   {item.label}
                 </span>
               ) : (
                 <Link
                   href={item.path}
-                  className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center"
+                  className="flex min-h-[44px] items-center rounded-full border px-4 no-underline transition-colors duration-200 hover:bg-[#1A2540] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ADC9E0]/60"
                   aria-label={`Navigate to ${item.label}`}
+                  style={{
+                    color: '#878EAE',
+                    borderColor: 'rgba(135,142,174,0.28)',
+                    textDecoration: 'none',
+                  }}
                 >
-                  {index === 0 && <Home size={16} className="inline mr-1" aria-hidden="true" />}
+                  {index === 0 && <Home size={15} strokeWidth={1.8} className="mr-2" aria-hidden="true" />}
                   {item.label}
                 </Link>
               )}
