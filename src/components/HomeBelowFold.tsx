@@ -6,6 +6,7 @@ import { BentoCardSkeleton, ProcessStepSkeleton, CardSkeleton } from '@/componen
 const BenefitsSection = lazy(() => import('@/components/BenefitsSection'));
 const MetricsSection = lazy(() => import('@/components/MetricsSection'));
 const AIToolsCarousel = lazy(() => import('@/components/AIToolsCarousel'));
+const FAQSection = lazy(() => import('@/components/FAQSection'));
 const CTASection = lazy(() => import('@/components/CTASection'));
 const Footer = lazy(() => import('@/components/Footer'));
 
@@ -44,6 +45,7 @@ export default function HomeBelowFold() {
       </div>
       <MetricsSection />
       <AIToolsCarousel />
+      <FAQSection />
       <CTASection />
       <Footer />
     </Suspense>

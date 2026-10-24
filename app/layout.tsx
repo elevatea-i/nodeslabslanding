@@ -93,19 +93,53 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'ProfessionalService',
-              name: 'NodesLabs',
-              description: 'Laboratorio de IA que construye agentes de voz, productos digitales y contenido generativo para empresas en México y LATAM.',
-              url: 'https://nodeslabs.com',
-              areaServed: ['México', 'LATAM', 'USA'],
-              serviceType: [
-                'AI Agents',
-                'Automatización empresarial',
-                'Productos digitales',
-                'Content & Media',
+              '@graph': [
+                {
+                  '@type': 'Organization',
+                  '@id': 'https://nodeslabs.com/#organization',
+                  name: 'NodesLabs',
+                  url: 'https://nodeslabs.com',
+                  description: 'Laboratorio de IA que diseña agentes, automatizaciones y productos digitales para empresas en México, LATAM y USA.',
+                  email: 'axel@nodeslabs.com',
+                  areaServed: ['México', 'LATAM', 'USA'],
+                },
+                {
+                  '@type': 'WebSite',
+                  '@id': 'https://nodeslabs.com/#website',
+                  url: 'https://nodeslabs.com',
+                  name: 'NodesLabs',
+                  inLanguage: 'es-MX',
+                  publisher: { '@id': 'https://nodeslabs.com/#organization' },
+                },
+                {
+                  '@type': 'Service',
+                  '@id': 'https://nodeslabs.com/#service-agentes-ia',
+                  name: 'Agentes de IA',
+                  serviceType: 'Agentes de IA',
+                  description: 'Agentes de voz y chat para WhatsApp y llamadas que atienden, califican y agendan por ti.',
+                  provider: { '@id': 'https://nodeslabs.com/#organization' },
+                  areaServed: ['México', 'LATAM', 'USA'],
+                },
+                {
+                  '@type': 'Service',
+                  '@id': 'https://nodeslabs.com/#service-productos-digitales',
+                  name: 'Productos Digitales',
+                  serviceType: 'Productos Digitales',
+                  description: 'Sitios web, plataformas y MVPs a la medida, conectados a tu WhatsApp, CRM y pagos.',
+                  provider: { '@id': 'https://nodeslabs.com/#organization' },
+                  areaServed: ['México', 'LATAM', 'USA'],
+                },
+                {
+                  '@type': 'Service',
+                  '@id': 'https://nodeslabs.com/#service-contenido-visual',
+                  name: 'Contenido Visual',
+                  serviceType: 'Contenido Visual',
+                  description: 'Imagen, video y presentaciones para que tu marca se vea premium.',
+                  provider: { '@id': 'https://nodeslabs.com/#organization' },
+                  areaServed: ['México', 'LATAM', 'USA'],
+                },
               ],
-              email: 'axel@nodeslabs.com',
-            }),
+            }).replace(/</g, '\\u003c'),
           }}
         />
       </head>
