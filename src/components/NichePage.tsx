@@ -65,8 +65,8 @@ export default function NichePage({ niche }: { niche: Niche }) {
     {
       title: isEs ? 'Llamada de descubrimiento' : 'Discovery call',
       desc: isEs
-        ? 'Entendemos tu operación: cómo agendas hoy, dónde pierdes citas y qué preguntas se repiten.'
-        : 'We understand your operation: how you book today, where you lose appointments and which questions repeat.',
+        ? 'Entendemos tu operación: Cómo agendas hoy, dónde pierdes citas y qué preguntas se repiten.'
+        : 'We understand your operation: How you book today, where you lose appointments and which questions repeat.',
     },
     {
       title: isEs ? 'Propuesta' : 'Proposal',
@@ -157,7 +157,7 @@ export default function NichePage({ niche }: { niche: Niche }) {
 
         <section style={sectionStyle}>
           <motion.p style={eyebrowStyle} {...fadeUp(0)}>
-            {isEs ? 'Qué hace el agente' : 'What the agent does'}
+            {isEs ? '¿Qué hace el agente?' : 'What the agent does''}
           </motion.p>
           <motion.h2 style={h2Style} {...fadeUp(0.1)}>
             {niche.capabilitiesTitle[language]}
@@ -183,7 +183,7 @@ export default function NichePage({ niche }: { niche: Niche }) {
 
         <section id="como-funciona" style={{ ...sectionStyle, scrollMarginTop: '96px' }}>
           <motion.p style={eyebrowStyle} {...fadeUp(0)}>
-            {isEs ? 'Cómo trabajamos' : 'How we work'}
+            {isEs ? '¿Cómo trabajamos?' : 'How we work?'}
           </motion.p>
           <motion.h2 style={h2Style} {...fadeUp(0.1)}>
             {isEs ? 'Así empezamos.' : 'How we start.'}
